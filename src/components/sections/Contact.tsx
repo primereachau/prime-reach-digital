@@ -72,9 +72,23 @@ export default function Contact() {
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const onSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      await fetch("https://formspree.io/f/xbdvaqkv", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(form),
+      });
+      setSubmitted(true);
+    } catch {
+      alert("Something went wrong. Please try again or call us directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -242,8 +256,8 @@ export default function Contact() {
                   >
                     <span className="absolute inset-0 bg-[#FF1744] transition-colors duration-300 group-hover:bg-[#FF4D6D]" />
                     <span className="absolute inset-0 opacity-0 group-hover:opacity-60 blur-xl bg-[#FF1744] transition-opacity duration-500" />
-                    <span className="relative z-10">Book My Free Strategy Call</span>
-                    <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform duration-200" />
+                    <span className="relative z-10">{loading ? "Sending..." : "Book My Free Strategy Call"}</span>
+                    {!loading && <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform duration-200" />}
                   </button>
                 </MagneticButton>
 
