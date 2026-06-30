@@ -1,130 +1,154 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Utensils, Sparkles, Car, Wrench, Briefcase } from "lucide-react";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Utensils, Sparkles, Car, Wrench, Briefcase, ArrowUpRight } from "lucide-react";
 
 const industries = [
   {
     icon: Utensils,
+    color: "#FF6B35",
+    bg: "rgba(255,107,53,0.1)",
     title: "Restaurants & Cafes",
-    description:
-      "Fill tables and grow takeaway orders with local SEO, Google Business, and targeted social ads that reach hungry customers nearby.",
-    results: "Avg. 40% more bookings",
+    desc: "Fill tables, grow takeaway orders, and build a loyal local following.",
+    result: "+40% more bookings",
   },
   {
     icon: Sparkles,
+    color: "#0066FF",
+    bg: "rgba(0,102,255,0.1)",
     title: "Cleaning Companies",
-    description:
-      "Generate a consistent stream of residential and commercial cleaning enquiries with Google Ads and a professional website.",
-    results: "Avg. 3× more leads",
+    desc: "Generate consistent residential and commercial cleaning enquiries every month.",
+    result: "3× more leads",
   },
   {
     icon: Car,
+    color: "#9333EA",
+    bg: "rgba(147,51,234,0.1)",
     title: "Mechanics & Auto",
-    description:
-      "Show up when locals search for mechanics, tyres, or car services. We keep your Google Business and ads running 24/7.",
-    results: "Dominate local search",
+    desc: "Show up when locals search for mechanics, tyres, and car services.",
+    result: "Dominate local search",
   },
   {
     icon: Wrench,
+    color: "#FF1744",
+    bg: "rgba(255,23,68,0.1)",
     title: "Trades & Construction",
-    description:
-      "Plumbers, electricians, builders — we build your digital presence so you get enquiries while you're on the tools.",
-    results: "More qualified jobs",
+    desc: "Plumbers, electricians, builders — we bring qualified jobs to you.",
+    result: "More qualified jobs",
   },
   {
     icon: Briefcase,
+    color: "#00BCD4",
+    bg: "rgba(0,188,212,0.1)",
     title: "Local Service Businesses",
-    description:
-      "Any local business that relies on customers in their area — we build the systems to bring them to you consistently.",
-    results: "Predictable growth",
+    desc: "Any local business that relies on customers in their area — we grow it.",
+    result: "Predictable growth",
   },
 ];
 
 export default function Industries() {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
   return (
-    <section id="industries" className="relative py-24 lg:py-32">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-px bg-gradient-to-r from-transparent via-red-500/20 to-transparent" />
+    <section id="industries" ref={ref} className="relative py-28 lg:py-36">
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#FF1744]/20 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <span className="text-red-400 text-sm font-semibold uppercase tracking-widest">
-            Who We Help
-          </span>
-          <h2 className="mt-3 text-4xl md:text-5xl font-bold text-white">
-            Built for{" "}
-            <span className="gradient-text">Australian Local Businesses</span>
-          </h2>
-          <p className="mt-4 text-slate-400 text-lg max-w-2xl mx-auto">
-            We understand your industry, your customers, and what it takes to
-            win in your local market.
-          </p>
-        </motion.div>
+      {/* Background glow */}
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(circle, rgba(255,23,68,0.06) 0%, transparent 70%)", transform: "translateY(-50%)" }}
+      />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {industries.map((ind, i) => {
-            const Icon = ind.icon;
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="group relative p-7 rounded-2xl border border-white/5 bg-[#0D1526] hover:border-red-500/20 transition-all duration-300 hover:-translate-y-1"
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="grid lg:grid-cols-[1fr_1fr] gap-16 items-start">
+
+          {/* Left — sticky header */}
+          <div className="lg:sticky lg:top-28">
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.7 }}
+            >
+              <span className="text-[#FF1744] text-xs font-semibold uppercase tracking-[0.2em]">
+                Who We Help
+              </span>
+              <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.08] tracking-tight">
+                Built for
+                <br />
+                <span className="gradient-text-brand">Australian</span>
+                <br />
+                Local Business.
+              </h2>
+              <p className="mt-5 text-[#64748B] text-lg leading-relaxed max-w-sm">
+                We understand your industry, your customers, and what it takes to win in your
+                local market — not just in theory, but in practice.
+              </p>
+
+              <motion.a
+                href="#contact"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-2 mt-8 px-6 py-3.5 rounded-xl bg-[#FF1744] text-white text-sm font-semibold"
+                data-cursor-cta
               >
-                {/* Icon + Result badge row */}
-                <div className="flex items-start justify-between mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-red-500/10 group-hover:bg-red-500/20 flex items-center justify-center transition-colors duration-300">
-                    <Icon size={22} className="text-red-400" />
+                Talk to Us
+                <ArrowUpRight size={16} />
+              </motion.a>
+            </motion.div>
+          </div>
+
+          {/* Right — industry cards */}
+          <div className="flex flex-col gap-3">
+            {industries.map((ind, i) => {
+              const Icon = ind.icon;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.6, delay: i * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
+                  className="group flex items-center gap-5 p-5 rounded-2xl border border-white/[0.06] bg-[#070d1f] hover:border-white/[0.12] hover:bg-[#080e20] transition-all duration-300 cursor-default"
+                >
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+                    style={{ backgroundColor: ind.bg }}
+                  >
+                    <Icon size={20} style={{ color: ind.color }} />
                   </div>
-                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-300 border border-blue-500/20">
-                    {ind.results}
-                  </span>
-                </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-4">
+                      <h3 className="text-white font-semibold text-[15px]">{ind.title}</h3>
+                      <span
+                        className="flex-shrink-0 text-[10px] font-semibold px-2.5 py-1 rounded-full"
+                        style={{ color: ind.color, backgroundColor: ind.bg }}
+                      >
+                        {ind.result}
+                      </span>
+                    </div>
+                    <p className="text-[#475569] text-sm mt-1 leading-relaxed">{ind.desc}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
 
-                <h3 className="text-white font-semibold text-lg mb-2">
-                  {ind.title}
-                </h3>
-                <p className="text-slate-500 text-sm leading-relaxed">
-                  {ind.description}
-                </p>
-              </motion.div>
-            );
-          })}
-
-          {/* CTA card */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-            className="relative p-7 rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-900/20 to-[#0D1526] flex flex-col justify-between"
-          >
-            <div>
-              <p className="text-blue-300 text-sm font-semibold uppercase tracking-widest mb-3">
+            {/* CTA card */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="p-5 rounded-2xl border border-[#0066FF]/20 bg-[#0066FF]/05"
+            >
+              <p className="text-[#3385FF] text-xs font-semibold uppercase tracking-widest mb-1">
                 Not on the list?
               </p>
-              <h3 className="text-white font-bold text-xl mb-3">
-                We work with any local service business in Australia
-              </h3>
-              <p className="text-slate-500 text-sm">
-                If you serve local customers and want more of them, we can help.
+              <p className="text-white font-medium text-sm">
+                We work with any local Australian service business. If you serve local customers,
+                we can help you get more of them.
               </p>
-            </div>
-            <a
-              href="#contact"
-              className="mt-6 inline-flex items-center justify-center px-6 py-3 rounded-xl bg-[#DC2626] hover:bg-[#EF4444] text-white font-semibold text-sm transition-all duration-200 cursor-pointer"
-            >
-              Talk to Us
-            </a>
-          </motion.div>
+            </motion.div>
+          </div>
+
         </div>
       </div>
     </section>

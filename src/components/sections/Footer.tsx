@@ -1,23 +1,60 @@
+"use client";
+
+import { SiGoogle, SiMeta, SiInstagram, SiFacebook, SiTiktok } from "react-icons/si";
+
+const year = new Date().getFullYear();
+
+const platforms = [
+  { Icon: SiGoogle, label: "Google" },
+  { Icon: SiMeta, label: "Meta" },
+  { Icon: SiFacebook, label: "Facebook" },
+  { Icon: SiInstagram, label: "Instagram" },
+  { Icon: SiTiktok, label: "TikTok" },
+];
+
 export default function Footer() {
-  const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-white/5 py-10">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-[#1D4ED8] flex items-center justify-center">
-            <span className="text-white font-bold text-xs">PR</span>
+    <footer className="relative border-t border-white/[0.06] py-12">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="grid md:grid-cols-[1fr_auto] gap-8 items-center mb-10">
+          {/* Brand */}
+          <div>
+            <div className="flex items-center gap-2.5 mb-3">
+              <div className="w-7 h-7 rounded-lg bg-[#0066FF] flex items-center justify-center">
+                <span className="text-white font-bold text-xs">PR</span>
+              </div>
+              <span className="text-white font-semibold text-[15px]">
+                Prime<span className="text-[#0066FF]">Reach</span> Digital
+              </span>
+            </div>
+            <p className="text-[#475569] text-sm max-w-xs leading-relaxed">
+              Melbourne&apos;s premium digital growth agency for local businesses across Australia.
+            </p>
           </div>
-          <span className="text-white font-semibold">
-            Prime<span className="text-[#3B82F6]">Reach</span> Digital
-          </span>
+
+          {/* Certified platforms */}
+          <div className="flex flex-col items-start md:items-end gap-3">
+            <span className="text-[#334155] text-xs uppercase tracking-widest">Certified Partners</span>
+            <div className="flex items-center gap-4">
+              {platforms.map(({ Icon, label }, i) => (
+                <div key={i} title={label} className="text-[#334155] hover:text-[#64748B] transition-colors">
+                  <Icon size={18} />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-        <p className="text-slate-600 text-sm text-center">
-          © {year} Prime Reach Digital Pty Ltd · Melbourne, Australia · ABN XX XXX XXX XXX
-        </p>
-        <div className="flex items-center gap-6 text-sm text-slate-600">
-          <a href="#" className="hover:text-white transition-colors cursor-pointer">Privacy</a>
-          <a href="#" className="hover:text-white transition-colors cursor-pointer">Terms</a>
-          <a href="#contact" className="hover:text-white transition-colors cursor-pointer">Contact</a>
+
+        {/* Bottom */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-8 border-t border-white/[0.04]">
+          <p className="text-[#334155] text-xs">
+            © {year} Prime Reach Digital Pty Ltd · Melbourne, VIC · ABN XX XXX XXX XXX
+          </p>
+          <div className="flex items-center gap-6 text-xs text-[#334155]">
+            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+          </div>
         </div>
       </div>
     </footer>

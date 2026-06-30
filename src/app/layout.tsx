@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import CursorLoader from "@/components/cursor/CursorLoader";
 import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -13,23 +14,21 @@ export const metadata: Metadata = {
   description:
     "Melbourne's premium digital growth agency. We help local businesses dominate online with website design, SEO, Google Ads, Meta Ads, and social media management.",
   keywords:
-    "digital marketing Melbourne, SEO Melbourne, Google Ads Melbourne, website design Melbourne, Meta Ads, social media management",
+    "digital marketing Melbourne, SEO Melbourne, Google Ads Melbourne, website design Melbourne",
   openGraph: {
     title: "Prime Reach Digital | Digital Growth Agency Melbourne",
-    description:
-      "Premium digital growth and website management for Australian businesses.",
+    description: "Premium digital growth and website management for Australian businesses.",
     type: "website",
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} h-full`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={inter.variable}>
+      <body className="grain-overlay min-h-screen">
+        <CursorLoader />
+        {children}
+      </body>
     </html>
   );
 }

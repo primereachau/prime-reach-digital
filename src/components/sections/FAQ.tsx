@@ -1,121 +1,133 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus } from "lucide-react";
+import { useRef, useState } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import { Plus } from "lucide-react";
 
 const faqs = [
   {
     q: "How long until I start seeing results?",
-    a: "It depends on the service. Google Ads can generate leads within days of launching. SEO typically takes 3–6 months to build momentum. We always set realistic expectations upfront and show you progress along the way.",
+    a: "Google Ads can generate leads within days of launching. SEO typically takes 3–6 months to build serious momentum. We set realistic expectations from day one and share progress reports so you always know where you stand.",
   },
   {
     q: "How much does it cost?",
-    a: "Every business is different, so we don't have one-size-fits-all pricing. After your free strategy call, we'll put together a proposal tailored to your goals and budget. We work with local businesses of all sizes.",
+    a: "Every business is different, so we don't do one-size-fits-all pricing. After your free strategy call, we'll build a proposal tailored to your goals and budget. We work with businesses of all sizes across Melbourne.",
   },
   {
     q: "Do I need to sign a long-term contract?",
-    a: "No. We operate on month-to-month agreements because we believe in earning your business every single month. You're never locked in.",
+    a: "No. We operate on month-to-month agreements because we believe in earning your business every single month. You're never locked in — you stay because you want to, not because you have to.",
   },
   {
     q: "Will I own my website and ad accounts?",
-    a: "Absolutely. Everything we build belongs to you — your website, your Google Ads account, your social pages. If you ever leave, you keep everything.",
+    a: "100%. Everything we build belongs to you — your website, your Google Ads account, your Meta account, your social pages. If you ever leave, you take everything with you, no questions asked.",
   },
   {
     q: "What do I need to get started?",
-    a: "Nothing except 30 minutes for a strategy call. We handle everything from there — setup, strategy, creative, and ongoing management.",
+    a: "Just 30 minutes for a strategy call. We handle everything from there — setup, strategy, creative, copy, and ongoing management. You focus on running your business, we handle the digital side.",
+  },
+  {
+    q: "How will I know if it's actually working?",
+    a: "You get a plain-English monthly report showing calls generated, leads, keyword rankings, ad spend, and ROI. No confusing dashboards or vanity metrics — just the numbers that affect your bottom line.",
   },
   {
     q: "Do you work with businesses outside Melbourne?",
-    a: "Yes. While we're based in Melbourne and focus on Australian businesses, we work with clients across Australia. Most of our work is done remotely, so location isn't a barrier.",
-  },
-  {
-    q: "How will I know if it's working?",
-    a: "You'll receive a clear monthly report showing leads, calls, rankings, ad spend, and ROI. No confusing dashboards — just plain English so you know exactly where your money is going.",
+    a: "Yes. We're Melbourne-based and focused on Australian businesses, but most of our work is done remotely. We have clients across Victoria, NSW, and QLD. Location is never a barrier.",
   },
 ];
 
-function FAQItem({ q, a }: { q: string; a: string }) {
+function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
   const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true });
+
   return (
-    <div className="border-b border-white/5 last:border-0">
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 16 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: index * 0.06 }}
+      className="border-b border-white/[0.06] last:border-0"
+    >
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between py-5 text-left group cursor-pointer"
+        className="w-full flex items-center justify-between py-5 lg:py-6 text-left group"
       >
-        <span className="text-white font-medium pr-8 group-hover:text-blue-300 transition-colors duration-200">
+        <span className="text-white font-medium text-base lg:text-[17px] pr-8 group-hover:text-[#3385FF] transition-colors duration-200 leading-snug">
           {q}
         </span>
-        <div className="flex-shrink-0 w-7 h-7 rounded-full border border-white/10 flex items-center justify-center">
-          {open ? (
-            <Minus size={14} className="text-blue-400" />
-          ) : (
-            <Plus size={14} className="text-slate-400" />
-          )}
-        </div>
+        <motion.div
+          animate={{ rotate: open ? 45 : 0 }}
+          transition={{ duration: 0.2 }}
+          className="flex-shrink-0 w-7 h-7 rounded-full glass border border-white/[0.08] flex items-center justify-center"
+        >
+          <Plus size={14} className="text-[#64748B]" />
+        </motion.div>
       </button>
-      <AnimatePresence>
+
+      <AnimatePresence initial={false}>
         {open && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
+            transition={{ duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
             className="overflow-hidden"
           >
-            <p className="text-slate-400 text-sm leading-relaxed pb-5 pr-10">
+            <p className="text-[#64748B] text-base leading-relaxed pb-6 pr-10">
               {a}
             </p>
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }
 
 export default function FAQ() {
-  return (
-    <section id="faq" className="relative py-24 lg:py-32">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-px bg-gradient-to-r from-transparent via-red-500/20 to-transparent" />
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true });
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+  return (
+    <section id="faq" ref={ref} className="relative py-28 lg:py-36">
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#FF1744]/20 to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="grid lg:grid-cols-[380px_1fr] gap-16 lg:gap-24 items-start">
+
           {/* Left */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <span className="text-red-400 text-sm font-semibold uppercase tracking-widest">
-              FAQ
-            </span>
-            <h2 className="mt-3 text-4xl md:text-5xl font-bold text-white">
-              Questions?{" "}
-              <span className="gradient-text">We&apos;ve Got Answers</span>
-            </h2>
-            <p className="mt-4 text-slate-400 text-lg leading-relaxed">
-              Everything you need to know before working with us. Can&apos;t find
-              your answer here?
-            </p>
-            <a
-              href="#contact"
-              className="mt-6 inline-flex items-center px-6 py-3 rounded-xl bg-[#DC2626] hover:bg-[#EF4444] text-white font-semibold text-sm transition-colors duration-200 cursor-pointer"
+          <div className="lg:sticky lg:top-28">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
             >
-              Ask us directly
-            </a>
-          </motion.div>
+              <span className="text-[#FF1744] text-xs font-semibold uppercase tracking-[0.2em]">
+                FAQ
+              </span>
+              <h2 className="mt-3 text-4xl md:text-5xl font-bold text-white leading-[1.08] tracking-tight">
+                Questions?
+                <br />
+                <span className="gradient-text-brand">We&apos;ve Got Answers.</span>
+              </h2>
+              <p className="mt-4 text-[#64748B] text-lg leading-relaxed">
+                Everything you need to know before working with us.
+              </p>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 mt-8 text-[#3385FF] text-sm font-medium hover:text-white transition-colors"
+              >
+                Still have questions? Talk to us →
+              </a>
+            </motion.div>
+          </div>
 
           {/* Right — accordion */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="rounded-2xl border border-white/5 bg-[#0D1526] px-7"
-          >
+          <div className="glass rounded-2xl px-8 lg:px-10 py-2">
             {faqs.map((item, i) => (
-              <FAQItem key={i} q={item.q} a={item.a} />
+              <FAQItem key={i} q={item.q} a={item.a} index={i} />
             ))}
-          </motion.div>
+          </div>
+
         </div>
       </div>
     </section>
