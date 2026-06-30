@@ -183,12 +183,12 @@ export default function Services() {
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#0066FF]/30 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Header */}
+        {/* Header — centred */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-14"
+          className="mb-14 text-center"
         >
           <span className="text-[#0066FF] text-xs font-semibold uppercase tracking-[0.2em]">
             What We Do
@@ -198,7 +198,7 @@ export default function Services() {
             <br />
             <span className="gradient-text-brand">Google SEO.</span>
           </h2>
-          <p className="mt-4 text-[#64748B] text-lg max-w-xl leading-relaxed">
+          <p className="mt-4 text-[#64748B] text-lg max-w-2xl mx-auto leading-relaxed">
             Our main focus is getting your business to the top of Google. We also offer everything else you need to grow online — all under one roof.
           </p>
         </motion.div>

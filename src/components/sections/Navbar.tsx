@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Menu } from "lucide-react";
+import { X, Menu, Phone } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 
 const links = [
@@ -52,15 +52,23 @@ export default function Navbar() {
             transition={{ duration: 0.6 }}
             className="flex items-center gap-2.5 group"
           >
-            <div className="relative w-8 h-8">
-              <div className="absolute inset-0 rounded-lg bg-[#0066FF] group-hover:bg-[#FF1744] transition-colors duration-300" />
-              <div className="absolute inset-0 rounded-lg bg-[#0066FF] opacity-0 group-hover:opacity-0 blur-md transition-all duration-300" />
-              <span className="relative z-10 flex items-center justify-center h-full text-white font-bold text-xs tracking-wider">
-                PR
-              </span>
-            </div>
-            <span className="text-white font-semibold text-[15px] tracking-tight">
-              Prime<span className="text-[#0066FF]">Reach</span>
+            {/* PR Monogram — matches real business card */}
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* Background circle */}
+              <circle cx="18" cy="18" r="18" fill="#0A0F1E"/>
+              {/* P — white geometric */}
+              <path d="M8 10h7c2.8 0 5 2.2 5 5s-2.2 5-5 5h-4v6H8V10zm3 3v4h4c1.1 0 2-.9 2-2s-.9-2-2-2h-4z" fill="white"/>
+              {/* R — blue gradient */}
+              <defs>
+                <linearGradient id="rGrad" x1="18" y1="10" x2="28" y2="26" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#4DA6FF"/>
+                  <stop offset="100%" stopColor="#0044CC"/>
+                </linearGradient>
+              </defs>
+              <path d="M19 10h7c2.2 0 4 1.8 4 4 0 1.6-.9 3-2.3 3.7L31 26h-3.5l-2.9-7.5H22V26h-3V10zm3 3v3.5h4c.8 0 1.5-.7 1.5-1.5S26.8 13 26 13h-4z" fill="url(#rGrad)"/>
+            </svg>
+            <span className="text-white font-bold text-xl tracking-tight">
+              Prime<span className="text-[#0066FF]">Reach</span> <span className="text-white/80">Digital</span>
             </span>
           </motion.a>
 
@@ -87,13 +95,24 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CTA */}
+          {/* Phone + CTA */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 }}
-            className="hidden md:flex items-center gap-3"
+            className="hidden md:flex items-center gap-4"
           >
+            <a
+              href="tel:0490881483"
+              className="flex items-center gap-2 group"
+            >
+              <div className="w-7 h-7 rounded-lg bg-[#0066FF]/15 flex items-center justify-center group-hover:bg-[#0066FF]/25 transition-colors">
+                <Phone size={13} className="text-[#0066FF]" />
+              </div>
+              <span className="text-white font-bold text-lg tracking-wide group-hover:text-[#0066FF] transition-colors">
+                0490 881 483
+              </span>
+            </a>
             <MagneticButton data-cursor-cta={true}>
               <a
                 href="#contact"
@@ -141,9 +160,16 @@ export default function Navbar() {
                 </a>
               ))}
               <a
+                href="tel:0490881483"
+                className="mt-4 flex items-center justify-center gap-2 py-3.5 rounded-xl glass border border-[#0066FF]/30 text-white font-bold text-lg"
+              >
+                <Phone size={16} className="text-[#0066FF]" />
+                0490 881 483
+              </a>
+              <a
                 href="#contact"
                 onClick={() => setMobileOpen(false)}
-                className="mt-4 py-3.5 rounded-xl bg-[#FF1744] text-white font-semibold text-center text-sm"
+                className="mt-2 py-3.5 rounded-xl bg-[#FF1744] text-white font-semibold text-center text-sm"
               >
                 Free Strategy Call
               </a>
