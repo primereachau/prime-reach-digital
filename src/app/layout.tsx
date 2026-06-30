@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     "Melbourne's premium digital growth agency. We help local businesses dominate online with website design, SEO, Google Ads, Meta Ads, and social media management.",
   keywords:
     "digital marketing Melbourne, SEO Melbourne, Google Ads Melbourne, website design Melbourne",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   openGraph: {
     title: "Prime Reach Digital | Digital Growth Agency Melbourne",
     description: "Premium digital growth and website management for Australian businesses.",
