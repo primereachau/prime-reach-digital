@@ -4,10 +4,9 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const stats = [
-  { value: 120, suffix: "+", label: "Businesses Grown", desc: "Across Melbourne and regional Australia" },
-  { value: 4.9, suffix: "★", label: "Average Google Rating", desc: "From verified client reviews" },
-  { value: 3, suffix: "×", label: "Average Client ROI", desc: "Return on marketing investment" },
-  { value: 98, suffix: "%", label: "Client Retention Rate", desc: "Month-to-month satisfaction" },
+  { value: 3, suffix: "×", label: "More Enquiries", desc: "Average increase in calls and leads from Google" },
+  { value: 98, suffix: "%", label: "Client Retention", desc: "Our clients stay because they see real results" },
+  { value: 24, suffix: "h", label: "Response Time", desc: "We get back to you the same day, every time" },
 ];
 
 function Counter({ target, suffix, duration = 2 }: { target: number; suffix: string; duration?: number }) {
@@ -64,14 +63,14 @@ export default function Stats() {
             The Numbers
           </span>
           <h2 className="mt-3 text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
-            Results That Speak
+            Real Results.
             <br />
-            <span className="gradient-text-brand">For Themselves.</span>
+            <span className="gradient-text-brand">No Fluff.</span>
           </h2>
         </motion.div>
 
         {/* Stats grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.05] rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/[0.05] rounded-2xl overflow-hidden">
           {stats.map((stat, i) => (
             <motion.div
               key={i}

@@ -6,8 +6,8 @@ import { ArrowRight, CheckCircle2, Phone, Mail, MapPin } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 
 const details = [
-  { Icon: Phone, label: "Phone", value: "+61 400 000 000" },
-  { Icon: Mail, label: "Email", value: "hello@primereachdigital.com.au" },
+  { Icon: Phone, label: "Phone", value: "0490 881 483" },
+  { Icon: Mail, label: "Email", value: "primereachau@gmail.com" },
   { Icon: MapPin, label: "Location", value: "Melbourne, VIC — Australia" },
 ];
 
@@ -118,13 +118,25 @@ export default function Contact() {
             className="flex flex-col justify-between"
           >
             <div>
+              <a
+                href="tel:0490881483"
+                className="flex items-center gap-4 glass border border-[#0066FF]/20 rounded-2xl px-5 py-4 mb-8 hover:border-[#0066FF]/40 transition-colors group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#0066FF]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#0066FF]/20 transition-colors">
+                  <Phone size={20} className="text-[#0066FF]" />
+                </div>
+                <div>
+                  <div className="text-[#64748B] text-xs mb-0.5">Prefer to call? Ring us directly</div>
+                  <div className="text-white font-bold text-xl tracking-wide">0490 881 483</div>
+                </div>
+              </a>
               <h3 className="text-white font-semibold text-xl mb-6">What happens on the call?</h3>
               <div className="space-y-4">
                 {[
-                  "We learn about your business, goals, and challenges",
-                  "We review your current online presence",
-                  "We share exactly what we'd do to get you more leads",
-                  "You decide if we're the right fit — zero pressure",
+                  "We listen to your business and what you're trying to grow",
+                  "We check how your business currently appears on Google",
+                  "We tell you exactly what needs to change to get more customers calling",
+                  "No pressure — you decide if it feels right for you",
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle2 size={16} className="text-[#0066FF] mt-0.5 flex-shrink-0" />

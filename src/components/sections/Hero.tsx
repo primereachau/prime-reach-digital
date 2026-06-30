@@ -2,14 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence, type Variants } from "framer-motion";
-import { ArrowRight, TrendingUp, Users, Star, Zap } from "lucide-react";
+import { ArrowRight, TrendingUp, Zap, Search } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 
-const words = ["We Make Local", "Businesses", "Impossible to Ignore."];
+const words = ["We Get Local Businesses", "Found on Google.", "More Customers. More Growth."];
 const stats = [
-  { icon: Users, value: "120+", label: "Businesses Grown", color: "#0066FF" },
-  { icon: Star, value: "4.9★", label: "Google Rating", color: "#FFB800" },
-  { icon: TrendingUp, value: "3×", label: "Average ROI", color: "#00C853" },
+  { icon: Search, value: "#1", label: "Google Rankings", color: "#0066FF" },
+  { icon: TrendingUp, value: "3×", label: "More Enquiries", color: "#00C853" },
   { icon: Zap, value: "24h", label: "Response Time", color: "#FF1744" },
 ];
 
@@ -147,9 +146,9 @@ export default function Hero() {
               transition={{ delay: 0.7 }}
               className="text-[#64748B] text-lg leading-relaxed max-w-xl mb-10"
             >
-              We help Melbourne restaurants, tradies, cleaning companies, and local service
-              businesses dominate online — through premium websites, high-converting ads, and
-              SEO that actually delivers.
+              If customers can’t find you on Google, they’re calling your competitor. We specialise
+              in getting Melbourne local businesses to the top of Google — more calls, more
+              bookings, more growth.
             </motion.p>
 
             {/* CTAs */}

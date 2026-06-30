@@ -17,16 +17,16 @@ const services = [
     title: "Website Design & Management",
     desc: "High-converting websites built to turn visitors into paying customers. We design, build, and manage everything — so you stay focused on running your business.",
     tag: "Core Service",
-    featured: true,
   },
   {
     Icon: Search,
     iconColor: "#34A853",
     glowColor: "rgba(52,168,83,0.15)",
     borderGlow: "rgba(52,168,83,0.3)",
-    title: "SEO",
-    desc: "Rank on page 1 of Google for searches that matter. We build long-term organic traffic that compounds.",
-    tag: "Organic Growth",
+    title: "SEO — Our Core Speciality",
+    desc: "When someone in your area searches for your service on Google, we make sure your business is the first thing they see. We handle everything — keywords, content, technical setup — you just answer the calls.",
+    tag: "Our #1 Speciality",
+    featured: true,
   },
   {
     Icon: SiGoogle,
@@ -194,12 +194,12 @@ export default function Services() {
             What We Do
           </span>
           <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.08] tracking-tight">
-            Your Digital Arsenal.
+            We Specialise in
             <br />
-            <span className="gradient-text-brand">Fully Loaded.</span>
+            <span className="gradient-text-brand">Google SEO.</span>
           </h2>
           <p className="mt-4 text-[#64748B] text-lg max-w-xl leading-relaxed">
-            Every service you need to dominate your local market — under one roof.
+            Our main focus is getting your business to the top of Google. We also offer everything else you need to grow online — all under one roof.
           </p>
         </motion.div>
 

@@ -28,7 +28,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-[#475569] text-sm max-w-xs leading-relaxed">
-              Melbourne&apos;s premium digital growth agency for local businesses across Australia.
+              Melbourne's SEO specialists. We help local businesses get found on Google and get more customers calling.
             </p>
           </div>
 
