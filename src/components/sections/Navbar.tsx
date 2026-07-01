@@ -67,7 +67,7 @@ export default function Navbar() {
               </defs>
               <path d="M19 10h7c2.2 0 4 1.8 4 4 0 1.6-.9 3-2.3 3.7L31 26h-3.5l-2.9-7.5H22V26h-3V10zm3 3v3.5h4c.8 0 1.5-.7 1.5-1.5S26.8 13 26 13h-4z" fill="url(#rGrad)"/>
             </svg>
-            <span className="text-white font-bold text-xl tracking-tight">
+            <span className="text-white font-bold text-base md:text-xl tracking-tight">
               Prime<span className="text-[#0066FF]">Reach</span> <span className="text-white/80">Digital</span>
             </span>
           </motion.a>
