@@ -2,48 +2,56 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Utensils, Sparkles, Car, Wrench, Briefcase, ArrowUpRight } from "lucide-react";
+import { Utensils, Sparkles, Car, Wrench, Briefcase, Hammer, ArrowUpRight } from "lucide-react";
 
 const industries = [
   {
-    icon: Utensils,
-    color: "#FF6B35",
-    bg: "rgba(255,107,53,0.1)",
-    title: "Restaurants & Cafes",
-    desc: "Fill tables, grow takeaway orders, and build a loyal local following.",
-    result: "+40% more bookings",
-  },
-  {
-    icon: Sparkles,
-    color: "#0066FF",
-    bg: "rgba(0,102,255,0.1)",
-    title: "Cleaning Companies",
-    desc: "Generate consistent residential and commercial cleaning enquiries every month.",
-    result: "3× more leads",
-  },
-  {
     icon: Car,
     color: "#9333EA",
-    bg: "rgba(147,51,234,0.1)",
+    bg: "rgba(147,51,234,0.12)",
     title: "Mechanics & Auto",
-    desc: "Show up when locals search for mechanics, tyres, and car services.",
+    desc: "Show up when locals search for mechanics, tyres, and car services. Own the search results in your suburb.",
     result: "Dominate local search",
   },
   {
     icon: Wrench,
     color: "#FF1744",
-    bg: "rgba(255,23,68,0.1)",
+    bg: "rgba(255,23,68,0.12)",
     title: "Trades & Construction",
-    desc: "Plumbers, electricians, builders — we bring qualified jobs to you.",
+    desc: "Plumbers, electricians, builders — we bring qualified jobs straight to your phone.",
     result: "More qualified jobs",
+  },
+  {
+    icon: Sparkles,
+    color: "#0066FF",
+    bg: "rgba(0,102,255,0.12)",
+    title: "Cleaning Companies",
+    desc: "Generate consistent residential and commercial cleaning enquiries every single month.",
+    result: "3× more leads",
+  },
+  {
+    icon: Utensils,
+    color: "#FF6B35",
+    bg: "rgba(255,107,53,0.12)",
+    title: "Restaurants & Cafes",
+    desc: "Fill tables, grow takeaway orders, and build a loyal local following that keeps coming back.",
+    result: "+40% more bookings",
   },
   {
     icon: Briefcase,
     color: "#00BCD4",
-    bg: "rgba(0,188,212,0.1)",
+    bg: "rgba(0,188,212,0.12)",
     title: "Local Service Businesses",
-    desc: "Any local business that relies on customers in their area — we grow it.",
+    desc: "Any local business that relies on customers in their area — if you serve locals, we grow it.",
     result: "Predictable growth",
+  },
+  {
+    icon: Hammer,
+    color: "#F59E0B",
+    bg: "rgba(245,158,11,0.12)",
+    title: "Handyman Services",
+    desc: "Get found by homeowners who need odd jobs done. More calls, more bookings, less time chasing work.",
+    result: "More calls daily",
   },
 ];
 
@@ -111,22 +119,22 @@ export default function Industries() {
                   className="group flex items-center gap-5 p-5 rounded-2xl border border-white/[0.06] bg-[#070d1f] hover:border-white/[0.12] hover:bg-[#080e20] transition-all duration-300 cursor-default"
                 >
                   <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
                     style={{ backgroundColor: ind.bg }}
                   >
-                    <Icon size={20} style={{ color: ind.color }} />
+                    <Icon size={26} style={{ color: ind.color }} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between gap-4">
-                      <h3 className="text-white font-semibold text-[15px]">{ind.title}</h3>
+                    <div className="flex items-start justify-between gap-4">
+                      <h3 className="text-white font-bold text-xl leading-tight">{ind.title}</h3>
                       <span
-                        className="flex-shrink-0 text-[10px] font-semibold px-2.5 py-1 rounded-full"
+                        className="flex-shrink-0 text-xs font-bold px-3 py-1.5 rounded-full whitespace-nowrap"
                         style={{ color: ind.color, backgroundColor: ind.bg }}
                       >
                         {ind.result}
                       </span>
                     </div>
-                    <p className="text-[#475569] text-sm mt-1 leading-relaxed">{ind.desc}</p>
+                    <p className="text-[#64748B] text-base mt-2 leading-relaxed">{ind.desc}</p>
                   </div>
                 </motion.div>
               );
