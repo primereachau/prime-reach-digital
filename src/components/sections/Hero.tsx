@@ -206,7 +206,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Mockups row — stacked on mobile, side by side on desktop */}
-          <div className="w-full flex flex-col lg:flex-row items-start justify-center gap-6">
+          <div className="w-full flex flex-col xl:flex-row items-center xl:items-start justify-center gap-6 max-w-5xl">
 
           {/* LEFT: Google Local Pack */}
           <motion.div
@@ -374,7 +374,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 32, scale: 0.97 }}
             animate={mounted ? { opacity: 1, y: 0, scale: 1 } : {}}
             transition={{ duration: 0.9, delay: 1.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="hidden lg:block w-full max-w-xs"
+            className="hidden xl:block w-full max-w-xs"
           >
             <div className="flex items-center justify-center gap-2 mb-3">
               <div className="h-px flex-1 bg-white/10" />
