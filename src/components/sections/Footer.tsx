@@ -51,7 +51,7 @@ export default function Footer() {
             © {year} Prime Reach Digital · Melbourne, VIC
           </p>
           <div className="flex items-center gap-6 text-xs text-[#334155]">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
             <a href="#contact" className="hover:text-white transition-colors">Contact</a>
           </div>
