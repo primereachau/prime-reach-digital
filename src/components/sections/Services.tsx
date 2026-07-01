@@ -4,29 +4,36 @@ import { useRef, useState } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
+const googleIcon = <svg viewBox="0 0 48 48" width="26" height="26"><path fill="#4285F4" d="M44.5 20H24v8.5h11.7C34.2 33.9 29.6 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 5.1 29.6 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21c10.5 0 20-7.6 20-21 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16.1 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 5.1 29.6 3 24 3c-7.6 0-14.2 4.3-17.7 11.7z"/><path fill="#FBBC05" d="M24 45c5.5 0 10.4-1.9 14.3-5.1l-6.6-5.5C29.7 36 26.9 37 24 37c-5.5 0-10.2-3.7-11.8-8.8l-7 5.4C8.5 40.7 15.7 45 24 45z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.7c-.8 2.4-2.3 4.4-4.3 5.9l6.6 5.5C41.7 36.7 45 31 45 24c0-1.3-.2-2.7-.5-4z"/></svg>;
+
 const services = [
   {
-    icon: (
-      <svg viewBox="0 0 48 48" width="26" height="26"><path fill="#4285F4" d="M44.5 20H24v8.5h11.7C34.2 33.9 29.6 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 5.1 29.6 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21c10.5 0 20-7.6 20-21 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16.1 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 5.1 29.6 3 24 3c-7.6 0-14.2 4.3-17.7 11.7z"/><path fill="#FBBC05" d="M24 45c5.5 0 10.4-1.9 14.3-5.1l-6.6-5.5C29.7 36 26.9 37 24 37c-5.5 0-10.2-3.7-11.8-8.8l-7 5.4C8.5 40.7 15.7 45 24 45z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.7c-.8 2.4-2.3 4.4-4.3 5.9l6.6 5.5C41.7 36.7 45 31 45 24c0-1.3-.2-2.7-.5-4z"/></svg>
-    ),
+    icon: googleIcon,
     iconBg: "rgba(66,133,244,0.12)",
     borderGlow: "rgba(52,168,83,0.4)",
-    title: "Google SEO — Our Core Speciality",
+    title: "Google SEO",
     desc: "When someone in your area searches for your service on Google, we make sure your business is the first thing they see. We handle everything — keywords, content, technical setup — you just answer the calls.",
     tag: "Our #1 Speciality",
     tagColor: "#34A853",
     featured: true,
   },
   {
-    icon: (
-      <svg viewBox="0 0 48 48" width="26" height="26"><path fill="#4285F4" d="M44.5 20H24v8.5h11.7C34.2 33.9 29.6 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 5.1 29.6 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21c10.5 0 20-7.6 20-21 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16.1 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 5.1 29.6 3 24 3c-7.6 0-14.2 4.3-17.7 11.7z"/><path fill="#FBBC05" d="M24 45c5.5 0 10.4-1.9 14.3-5.1l-6.6-5.5C29.7 36 26.9 37 24 37c-5.5 0-10.2-3.7-11.8-8.8l-7 5.4C8.5 40.7 15.7 45 24 45z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.7c-.8 2.4-2.3 4.4-4.3 5.9l6.6 5.5C41.7 36.7 45 31 45 24c0-1.3-.2-2.7-.5-4z"/></svg>
-    ),
+    icon: googleIcon,
     iconBg: "rgba(66,133,244,0.12)",
     borderGlow: "rgba(255,23,68,0.3)",
     title: "Google Business Profile",
     desc: "Dominate the Google Maps 3-pack and local search results. Be the first business locals see when they search nearby — the most powerful free tool for local businesses.",
     tag: "Local SEO",
     tagColor: "#FF1744",
+  },
+  {
+    icon: googleIcon,
+    iconBg: "rgba(66,133,244,0.12)",
+    borderGlow: "rgba(66,133,244,0.3)",
+    title: "Google Ads",
+    desc: "Targeted campaigns that put you in front of customers actively searching for your services right now. Instant visibility while your SEO builds long-term.",
+    tag: "Paid Ads",
+    tagColor: "#4285F4",
   },
   {
     icon: (
@@ -41,36 +48,14 @@ const services = [
   },
   {
     icon: (
-      <svg viewBox="0 0 48 48" width="26" height="26"><path fill="#4285F4" d="M44.5 20H24v8.5h11.7C34.2 33.9 29.6 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 5.1 29.6 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21c10.5 0 20-7.6 20-21 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16.1 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 5.1 29.6 3 24 3c-7.6 0-14.2 4.3-17.7 11.7z"/><path fill="#FBBC05" d="M24 45c5.5 0 10.4-1.9 14.3-5.1l-6.6-5.5C29.7 36 26.9 37 24 37c-5.5 0-10.2-3.7-11.8-8.8l-7 5.4C8.5 40.7 15.7 45 24 45z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.7c-.8 2.4-2.3 4.4-4.3 5.9l6.6 5.5C41.7 36.7 45 31 45 24c0-1.3-.2-2.7-.5-4z"/></svg>
-    ),
-    iconBg: "rgba(66,133,244,0.12)",
-    borderGlow: "rgba(66,133,244,0.3)",
-    title: "Google Ads",
-    desc: "Targeted campaigns that put you in front of customers actively searching for your services right now. Instant visibility while your SEO builds long-term.",
-    tag: "Paid Ads",
-    tagColor: "#4285F4",
-  },
-  {
-    icon: (
       <svg viewBox="0 0 48 48" width="26" height="26"><path fill="#1877F2" d="M48 24C48 10.7 37.3 0 24 0S0 10.7 0 24c0 11.9 8.7 21.8 20.2 23.7V31H14v-7h6.2v-5.3c0-6.1 3.6-9.5 9.2-9.5 2.7 0 5.5.5 5.5.5v6h-3.1c-3 0-4 1.9-4 3.8V24H35l-1.1 7h-5.7v16.7C39.3 45.8 48 35.9 48 24z"/></svg>
     ),
     iconBg: "rgba(24,119,242,0.12)",
     borderGlow: "rgba(0,130,251,0.3)",
-    title: "Meta Ads — Facebook & Instagram",
+    title: "Meta Ads",
     desc: "Facebook & Instagram ads that reach your ideal local customers and drive consistent enquiries straight to your phone.",
     tag: "Paid Social",
     tagColor: "#1877F2",
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 48 48" width="26" height="26"><defs><radialGradient id="ig1" cx="30%" cy="107%" r="150%"><stop offset="0%" stopColor="#fdf497"/><stop offset="10%" stopColor="#fdf497"/><stop offset="50%" stopColor="#fd5949"/><stop offset="68%" stopColor="#d6249f"/><stop offset="100%" stopColor="#285AEB"/></radialGradient></defs><rect width="48" height="48" rx="12" fill="url(#ig1)"/><circle cx="24" cy="24" r="8" fill="none" stroke="white" strokeWidth="3"/><circle cx="34" cy="14" r="2.5" fill="white"/><rect x="6" y="6" width="36" height="36" rx="10" fill="none" stroke="white" strokeWidth="3"/></svg>
-    ),
-    iconBg: "rgba(225,48,108,0.12)",
-    borderGlow: "rgba(225,48,108,0.3)",
-    title: "Social Media Management",
-    desc: "Consistent, professional content that builds trust and keeps your business top of mind every week — without you lifting a finger.",
-    tag: "Brand Presence",
-    tagColor: "#E1306C",
   },
   {
     icon: (
@@ -82,6 +67,17 @@ const services = [
     desc: "Tap into TikTok's massive and growing Australian audience with short-form creative ads that reach people before they even know they need you.",
     tag: "Emerging Channel",
     tagColor: "#ffffff",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 48 48" width="26" height="26"><defs><radialGradient id="ig1" cx="30%" cy="107%" r="150%"><stop offset="0%" stopColor="#fdf497"/><stop offset="10%" stopColor="#fdf497"/><stop offset="50%" stopColor="#fd5949"/><stop offset="68%" stopColor="#d6249f"/><stop offset="100%" stopColor="#285AEB"/></radialGradient></defs><rect width="48" height="48" rx="12" fill="url(#ig1)"/><circle cx="24" cy="24" r="8" fill="none" stroke="white" strokeWidth="3"/><circle cx="34" cy="14" r="2.5" fill="white"/><rect x="6" y="6" width="36" height="36" rx="10" fill="none" stroke="white" strokeWidth="3"/></svg>
+    ),
+    iconBg: "rgba(225,48,108,0.12)",
+    borderGlow: "rgba(225,48,108,0.3)",
+    title: "Social Media Management",
+    desc: "Consistent, professional content that builds trust and keeps your business top of mind every week — without you lifting a finger.",
+    tag: "Brand Presence",
+    tagColor: "#E1306C",
   },
   {
     icon: (
