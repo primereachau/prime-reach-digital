@@ -92,7 +92,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" ref={ref} className="relative py-28 lg:py-36">
+    <section id="contact" ref={ref} className="relative py-28 lg:py-36 overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#0066FF]/30 to-transparent" />
 
       {/* Glow */}
