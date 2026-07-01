@@ -206,14 +206,14 @@ export default function Hero() {
           </motion.div>
 
           {/* Mockups row — stacked on mobile, side by side on desktop */}
-          <div className="w-full flex flex-col xl:flex-row items-center xl:items-start justify-center gap-6" style={{maxWidth: "900px"}}>
+          <div className="w-full flex flex-col xl:flex-row items-center xl:items-stretch justify-center gap-6" style={{maxWidth: "900px"}}>
 
           {/* LEFT: Google Local Pack */}
           <motion.div
             initial={{ opacity: 0, y: 32, scale: 0.97 }}
             animate={mounted ? { opacity: 1, y: 0, scale: 1 } : {}}
             transition={{ duration: 0.9, delay: 1.1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="w-full max-w-md mx-auto xl:mx-0 xl:max-w-[420px] flex-shrink-0"
+            className="w-full max-w-md mx-auto xl:mx-0 xl:max-w-[420px] flex-shrink-0 flex flex-col"
           >
             {/* Label above */}
             <div className="flex items-center justify-center gap-2 mb-3">
@@ -223,7 +223,7 @@ export default function Hero() {
             </div>
 
             {/* Google card — white background, looks real */}
-            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/60 border border-white/10">
+            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/60 border border-white/10 flex-shrink-0">
 
               {/* Google search bar */}
               <div className="bg-[#202124] px-4 py-3 flex items-center gap-3">
@@ -354,7 +354,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 10 }}
               animate={mounted ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 1.9 }}
-              className="mt-5 flex flex-col items-center gap-1"
+              className="mt-auto pt-5 flex flex-col items-center gap-1"
             >
               <div className="flex items-center gap-2">
                 <div className="h-px w-8 bg-[#34A853]/40" />
@@ -374,7 +374,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 32, scale: 0.97 }}
             animate={mounted ? { opacity: 1, y: 0, scale: 1 } : {}}
             transition={{ duration: 0.9, delay: 1.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="hidden xl:block w-full max-w-[320px] flex-shrink-0"
+            className="hidden xl:flex flex-col w-full max-w-[320px] flex-shrink-0"
           >
             <div className="flex items-center justify-center gap-2 mb-3">
               <div className="h-px flex-1 bg-white/10" />
@@ -382,7 +382,7 @@ export default function Hero() {
               <div className="h-px flex-1 bg-white/10" />
             </div>
 
-            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/60 border border-white/10 bg-white">
+            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/60 border border-white/10 bg-white flex flex-col flex-1">
               {/* Header */}
               <div className="px-4 py-3 border-b border-[#e8eaed] flex items-center gap-2">
                 <svg viewBox="0 0 74 24" width="48" height="16" xmlns="http://www.w3.org/2000/svg">
@@ -431,7 +431,7 @@ export default function Hero() {
               </div>
 
               {/* Mini bar chart */}
-              <div className="px-4 py-3 border-t border-[#e8eaed]">
+              <div className="px-4 py-3 border-t border-[#e8eaed] flex-1 flex flex-col justify-center">
                 <div className="text-[10px] text-[#5f6368] mb-2">Weekly calls</div>
                 <div className="flex items-end gap-1 h-10">
                   {[15, 22, 18, 30, 28, 42, 38, 55, 50, 67].map((h, i) => (
@@ -450,7 +450,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 10 }}
               animate={mounted ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 2.0 }}
-              className="mt-5 flex flex-col items-center gap-1"
+              className="mt-auto pt-5 flex flex-col items-center gap-1"
             >
               <p className="text-white text-xl font-bold tracking-tight text-center">
                 Real results, <span className="text-[#0066FF]">every month.</span>
