@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     description: "Premium digital growth and website management for Australian businesses.",
     type: "website",
   },
+  verification: {
+    google: "TkeU0M4dXhomo96cNUuYHR8CDBuUtrgwbVqCZyCCvsw",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
