@@ -206,14 +206,14 @@ export default function Hero() {
           </motion.div>
 
           {/* Mockups row — stacked on mobile, side by side on desktop */}
-          <div className="w-full flex flex-col xl:flex-row items-center xl:items-start justify-center gap-6 max-w-5xl">
+          <div className="w-full flex flex-col xl:flex-row items-center xl:items-start justify-center gap-6" style={{maxWidth: "900px"}}>
 
           {/* LEFT: Google Local Pack */}
           <motion.div
             initial={{ opacity: 0, y: 32, scale: 0.97 }}
             animate={mounted ? { opacity: 1, y: 0, scale: 1 } : {}}
             transition={{ duration: 0.9, delay: 1.1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="w-full max-w-md mx-auto lg:mx-0"
+            className="w-full max-w-md mx-auto xl:mx-0 xl:max-w-[420px] flex-shrink-0"
           >
             {/* Label above */}
             <div className="flex items-center justify-center gap-2 mb-3">
@@ -374,7 +374,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 32, scale: 0.97 }}
             animate={mounted ? { opacity: 1, y: 0, scale: 1 } : {}}
             transition={{ duration: 0.9, delay: 1.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="hidden xl:block w-full max-w-xs"
+            className="hidden xl:block w-full max-w-[320px] flex-shrink-0"
           >
             <div className="flex items-center justify-center gap-2 mb-3">
               <div className="h-px flex-1 bg-white/10" />
