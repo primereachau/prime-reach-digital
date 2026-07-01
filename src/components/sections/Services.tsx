@@ -1,14 +1,33 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
-  SiGoogle, SiMeta, SiFacebook, SiInstagram,
+  SiGoogle, SiMeta, SiInstagram,
   SiTiktok, SiGoogleanalytics,
 } from "react-icons/si";
-import { Globe, MapPin, BarChart3, Search } from "lucide-react";
+import { Globe, MapPin, Search, ChevronDown } from "lucide-react";
 
 const services = [
+  {
+    Icon: Search,
+    iconColor: "#34A853",
+    glowColor: "rgba(52,168,83,0.15)",
+    borderGlow: "rgba(52,168,83,0.4)",
+    title: "Google SEO — Our Core Speciality",
+    desc: "When someone in your area searches for your service on Google, we make sure your business is the first thing they see. We handle everything — keywords, content, technical setup — you just answer the calls.",
+    tag: "Our #1 Speciality",
+    featured: true,
+  },
+  {
+    Icon: MapPin,
+    iconColor: "#FF1744",
+    glowColor: "rgba(255,23,68,0.15)",
+    borderGlow: "rgba(255,23,68,0.3)",
+    title: "Google Business Profile",
+    desc: "Dominate the Google Maps 3-pack and local search results. Be the first business locals see when they search nearby — the most powerful free tool for local businesses.",
+    tag: "Local SEO",
+  },
   {
     Icon: Globe,
     iconColor: "#0066FF",
@@ -19,22 +38,12 @@ const services = [
     tag: "Core Service",
   },
   {
-    Icon: Search,
-    iconColor: "#34A853",
-    glowColor: "rgba(52,168,83,0.15)",
-    borderGlow: "rgba(52,168,83,0.3)",
-    title: "SEO — Our Core Speciality",
-    desc: "When someone in your area searches for your service on Google, we make sure your business is the first thing they see. We handle everything — keywords, content, technical setup — you just answer the calls.",
-    tag: "Our #1 Speciality",
-    featured: true,
-  },
-  {
     Icon: SiGoogle,
     iconColor: "#4285F4",
     glowColor: "rgba(66,133,244,0.15)",
     borderGlow: "rgba(66,133,244,0.3)",
     title: "Google Ads",
-    desc: "Targeted campaigns that put you in front of customers actively searching for your services right now.",
+    desc: "Targeted campaigns that put you in front of customers actively searching for your services right now. Instant visibility while your SEO builds long-term.",
     tag: "Paid Ads",
   },
   {
@@ -43,7 +52,7 @@ const services = [
     glowColor: "rgba(0,130,251,0.15)",
     borderGlow: "rgba(0,130,251,0.3)",
     title: "Meta Ads",
-    desc: "Facebook & Instagram ads that reach your ideal local customers and drive consistent enquiries.",
+    desc: "Facebook & Instagram ads that reach your ideal local customers and drive consistent enquiries straight to your phone.",
     tag: "Paid Social",
   },
   {
@@ -52,7 +61,7 @@ const services = [
     glowColor: "rgba(225,48,108,0.15)",
     borderGlow: "rgba(225,48,108,0.3)",
     title: "Social Media Management",
-    desc: "Consistent, professional content that builds trust and keeps your business top of mind every week.",
+    desc: "Consistent, professional content that builds trust and keeps your business top of mind every week — without you lifting a finger.",
     tag: "Brand Presence",
   },
   {
@@ -61,17 +70,8 @@ const services = [
     glowColor: "rgba(255,255,255,0.1)",
     borderGlow: "rgba(255,255,255,0.2)",
     title: "TikTok Ads",
-    desc: "Tap into TikTok's massive and growing Australian audience with short-form creative ads.",
+    desc: "Tap into TikTok's massive and growing Australian audience with short-form creative ads that reach people before they even know they need you.",
     tag: "Emerging Channel",
-  },
-  {
-    Icon: MapPin,
-    iconColor: "#FF1744",
-    glowColor: "rgba(255,23,68,0.15)",
-    borderGlow: "rgba(255,23,68,0.3)",
-    title: "Google Business Profile",
-    desc: "Dominate the Google Maps 3-pack and local search results. Be the first business locals see.",
-    tag: "Local SEO",
   },
   {
     Icon: SiGoogleanalytics,
@@ -79,97 +79,108 @@ const services = [
     glowColor: "rgba(249,171,0,0.15)",
     borderGlow: "rgba(249,171,0,0.3)",
     title: "Reporting & Strategy",
-    desc: "Clear monthly reports and a growth roadmap that shows exactly what your investment is doing.",
+    desc: "Clear monthly reports and a growth roadmap that shows exactly what your investment is doing — in plain English, no confusing jargon.",
     tag: "Intelligence",
   },
 ];
 
-function ServiceCard({
+function ServiceRow({
   service,
   index,
+  isOpen,
+  onToggle,
 }: {
   service: (typeof services)[0];
   index: number;
+  isOpen: boolean;
+  onToggle: () => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true });
-
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const rotateX = useSpring(useTransform(y, [-80, 80], [6, -6]), { stiffness: 200, damping: 25 });
-  const rotateY = useSpring(useTransform(x, [-80, 80], [-6, 6]), { stiffness: 200, damping: 25 });
-
-  const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    x.set(e.clientX - rect.left - rect.width / 2);
-    y.set(e.clientY - rect.top - rect.height / 2);
-  };
-  const onLeave = () => { x.set(0); y.set(0); };
-
   const Icon = service.Icon as React.ElementType;
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.06, ease: [0.25, 0.1, 0.25, 1] }}
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d", perspective: 800 }}
-      className={`group relative rounded-2xl p-6 border border-white/[0.06] bg-[#070d1f] hover:border-white/[0.12] transition-all duration-500 cursor-default ${
-        service.featured ? "lg:col-span-2 lg:row-span-1" : ""
-      }`}
+      transition={{ duration: 0.5, delay: index * 0.05, ease: [0.25, 0.1, 0.25, 1] }}
     >
-      {/* Hover glow */}
-      <div
-        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-        style={{ boxShadow: `inset 0 0 60px ${service.glowColor}` }}
-      />
-
-      {/* Hover border glow */}
-      <div
-        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none"
-        style={{ boxShadow: `0 0 30px -8px ${service.borderGlow}` }}
-      />
-
-      <div className={`flex gap-5 ${service.featured ? "flex-row items-start" : "flex-col"}`}>
-        {/* Icon */}
-        <div
-          className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
-          style={{ backgroundColor: service.glowColor }}
-        >
-          <Icon size={22} color={service.iconColor} />
-        </div>
-
-        <div className={service.featured ? "flex-1" : ""}>
-          {/* Tag */}
-          <span
-            className="inline-block text-[10px] font-semibold uppercase tracking-widest mb-2 px-2 py-0.5 rounded-full"
-            style={{ color: service.iconColor, backgroundColor: service.glowColor }}
+      <button
+        onClick={onToggle}
+        className={`w-full text-left rounded-2xl border transition-all duration-300 ${
+          service.featured
+            ? "border-[#34A853]/40 bg-[#34A853]/5 hover:bg-[#34A853]/8"
+            : "border-white/[0.06] bg-[#070d1f] hover:border-white/[0.12]"
+        } ${isOpen ? "rounded-b-none border-b-0" : ""}`}
+        style={isOpen ? { boxShadow: `0 0 30px -8px ${service.borderGlow}` } : {}}
+      >
+        <div className="flex items-center gap-4 px-5 py-4">
+          {/* Icon */}
+          <div
+            className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
+            style={{ backgroundColor: service.glowColor }}
           >
-            {service.tag}
-          </span>
+            <Icon size={18} color={service.iconColor} />
+          </div>
 
-          <h3 className="text-white font-semibold text-[15px] leading-snug mb-2">
-            {service.title}
-          </h3>
-          <p className="text-[#475569] text-sm leading-relaxed">
-            {service.desc}
-          </p>
-
-          {service.featured && (
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-1.5 mt-4 text-sm font-medium group/link"
-              style={{ color: service.iconColor }}
+          {/* Tag + Title */}
+          <div className="flex-1 min-w-0 flex items-center gap-3">
+            <span
+              className="hidden sm:inline-block text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded-full flex-shrink-0"
+              style={{ color: service.iconColor, backgroundColor: service.glowColor }}
             >
-              <span>Learn more</span>
-              <span className="transition-transform duration-200 group-hover/link:translate-x-1">→</span>
-            </a>
-          )}
+              {service.tag}
+            </span>
+            <span className={`font-semibold text-[15px] truncate ${service.featured ? "text-white" : "text-white/90"}`}>
+              {service.title}
+            </span>
+          </div>
+
+          {/* Chevron */}
+          <motion.div
+            animate={{ rotate: isOpen ? 180 : 0 }}
+            transition={{ duration: 0.25 }}
+            className="flex-shrink-0 ml-2"
+          >
+            <ChevronDown size={18} className="text-white/40" />
+          </motion.div>
         </div>
-      </div>
+      </button>
+
+      {/* Expandable content */}
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            className="overflow-hidden"
+          >
+            <div
+              className={`px-5 pb-5 pt-3 rounded-b-2xl border border-t-0 ${
+                service.featured ? "border-[#34A853]/40 bg-[#34A853]/5" : "border-white/[0.06] bg-[#070d1f]"
+              }`}
+              style={{ boxShadow: `0 8px 30px -8px ${service.borderGlow}` }}
+            >
+              <p className="text-[#64748B] text-sm leading-relaxed pl-14">
+                {service.desc}
+              </p>
+              {service.featured && (
+                <div className="pl-14 mt-3">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-[#34A853] hover:underline"
+                  >
+                    Get started →
+                  </a>
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
@@ -177,13 +188,16 @@ function ServiceCard({
 export default function Services() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true });
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <section id="services" ref={ref} className="relative py-28 lg:py-36">
+    <section id="services" ref={ref} className="relative py-28 lg:py-36 overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#0066FF]/30 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Header — centred */}
+      <div className="max-w-4xl mx-auto px-6 lg:px-10">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -203,10 +217,16 @@ export default function Services() {
           </p>
         </motion.div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" style={{ perspective: 1000 }}>
+        {/* Accordion */}
+        <div className="flex flex-col gap-3">
           {services.map((service, i) => (
-            <ServiceCard key={i} service={service} index={i} />
+            <ServiceRow
+              key={i}
+              service={service}
+              index={i}
+              isOpen={openIndex === i}
+              onToggle={() => toggle(i)}
+            />
           ))}
         </div>
       </div>

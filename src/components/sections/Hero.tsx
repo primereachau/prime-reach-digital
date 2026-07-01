@@ -120,8 +120,8 @@ export default function Hero() {
                   <span
                     className={`block font-bold leading-[1.05] tracking-tight ${
                       i === 2
-                        ? "gradient-text-brand text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
-                        : "text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+                        ? "gradient-text-brand text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+                        : "text-white text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
                     }`}
                   >
                     {line}
