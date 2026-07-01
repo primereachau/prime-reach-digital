@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import { ArrowRight, Phone } from "lucide-react";
 import { ChevronDown } from "lucide-react";
 
 const googleIcon = <svg viewBox="0 0 48 48" width="26" height="26"><path fill="#4285F4" d="M44.5 20H24v8.5h11.7C34.2 33.9 29.6 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 5.1 29.6 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21c10.5 0 20-7.6 20-21 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16.1 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 5.1 29.6 3 24 3c-7.6 0-14.2 4.3-17.7 11.7z"/><path fill="#FBBC05" d="M24 45c5.5 0 10.4-1.9 14.3-5.1l-6.6-5.5C29.7 36 26.9 37 24 37c-5.5 0-10.2-3.7-11.8-8.8l-7 5.4C8.5 40.7 15.7 45 24 45z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.7c-.8 2.4-2.3 4.4-4.3 5.9l6.6 5.5C41.7 36.7 45 31 45 24c0-1.3-.2-2.7-.5-4z"/></svg>;
@@ -192,6 +193,108 @@ function ServiceRow({
   );
 }
 
+function EnquiryForm() {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true });
+  const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [form, setForm] = useState({ name: "", phone: "", service: "", message: "" });
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      await fetch("https://formspree.io/f/xbdvaqkv", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ ...form, _subject: "Service Enquiry — Prime Reach Digital" }),
+      });
+      setSent(true);
+    } catch {
+      alert("Something went wrong. Please try again or call us directly.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 24 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      className="mt-10 rounded-2xl border border-[#0066FF]/20 bg-[#070d1f] overflow-hidden"
+    >
+      {/* Header strip */}
+      <div className="px-7 py-5 border-b border-white/[0.06] flex items-center justify-between gap-4">
+        <div>
+          <p className="text-white font-bold text-lg">Enquire about a service</p>
+          <p className="text-[#64748B] text-sm mt-0.5">We&apos;ll get back to you within 1 business day.</p>
+        </div>
+        <a href="tel:0490881483" className="hidden sm:flex items-center gap-2 text-[#0066FF] text-sm font-medium hover:underline flex-shrink-0">
+          <Phone size={14} />
+          0490 881 483
+        </a>
+      </div>
+
+      {sent ? (
+        <div className="px-7 py-10 text-center">
+          <div className="w-12 h-12 rounded-full bg-[#34A853]/15 flex items-center justify-center mx-auto mb-3">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#34A853" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </div>
+          <p className="text-white font-semibold text-lg">Message sent!</p>
+          <p className="text-[#64748B] text-sm mt-1">We&apos;ll be in touch shortly.</p>
+        </div>
+      ) : (
+        <form onSubmit={onSubmit} className="px-7 py-6 grid sm:grid-cols-2 gap-4">
+          <div className="flex flex-col gap-1.5">
+            <label className="text-[#64748B] text-xs font-medium uppercase tracking-wider">Your Name *</label>
+            <input name="name" required value={form.name} onChange={onChange} placeholder="John Smith"
+              className="px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white text-sm placeholder-[#334155] focus:outline-none focus:border-[#0066FF]/50 transition-colors" />
+          </div>
+          <div className="flex flex-col gap-1.5">
+            <label className="text-[#64748B] text-xs font-medium uppercase tracking-wider">Phone Number *</label>
+            <input name="phone" type="tel" required value={form.phone} onChange={onChange} placeholder="04XX XXX XXX"
+              className="px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white text-sm placeholder-[#334155] focus:outline-none focus:border-[#0066FF]/50 transition-colors" />
+          </div>
+          <div className="flex flex-col gap-1.5 sm:col-span-2">
+            <label className="text-[#64748B] text-xs font-medium uppercase tracking-wider">Service Interested In</label>
+            <select name="service" value={form.service} onChange={onChange}
+              className="px-4 py-3 rounded-xl bg-[#070d1f] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#0066FF]/50 transition-colors appearance-none">
+              <option value="">Select a service...</option>
+              <option>Google SEO</option>
+              <option>Google Business Profile</option>
+              <option>Google Ads</option>
+              <option>Website Design &amp; Management</option>
+              <option>Meta Ads</option>
+              <option>TikTok Ads</option>
+              <option>Social Media Management</option>
+              <option>Reporting &amp; Strategy</option>
+            </select>
+          </div>
+          <div className="flex flex-col gap-1.5 sm:col-span-2">
+            <label className="text-[#64748B] text-xs font-medium uppercase tracking-wider">Message (optional)</label>
+            <textarea name="message" value={form.message} onChange={onChange} rows={3} placeholder="Tell us a bit about your business..."
+              className="px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white text-sm placeholder-[#334155] focus:outline-none focus:border-[#0066FF]/50 transition-colors resize-none" />
+          </div>
+          <div className="sm:col-span-2">
+            <button type="submit"
+              className="group w-full relative flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl overflow-hidden font-semibold text-white text-sm"
+              style={{ background: "linear-gradient(135deg, #0066FF 0%, #0044CC 100%)" }}
+            >
+              <span>{loading ? "Sending..." : "Send Enquiry"}</span>
+              {!loading && <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />}
+            </button>
+          </div>
+        </form>
+      )}
+    </motion.div>
+  );
+}
+
 export default function Services() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true });
@@ -236,6 +339,9 @@ export default function Services() {
             />
           ))}
         </div>
+
+        {/* Enquiry form */}
+        <EnquiryForm />
       </div>
     </section>
   );
