@@ -20,24 +20,24 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5 mb-3">
-              <div className="w-7 h-7 rounded-lg bg-[#0066FF] flex items-center justify-center">
+              <div className="w-7 h-7 rounded-lg bg-[var(--pr-blue)] flex items-center justify-center">
                 <span className="text-white font-bold text-xs">PR</span>
               </div>
               <span className="text-white font-semibold text-[15px]">
-                Prime<span className="text-[#0066FF]">Reach</span> Digital
+                Prime<span className="text-[var(--pr-blue)]">Reach</span> Digital
               </span>
             </div>
-            <p className="text-[#475569] text-sm max-w-xs leading-relaxed">
+            <p className="text-[var(--text-dimmer)] text-sm max-w-xs leading-relaxed">
               Melbourne's SEO specialists. We help local businesses get found on Google and get more customers calling.
             </p>
           </div>
 
           {/* Certified platforms */}
           <div className="flex flex-col items-start md:items-end gap-3">
-            <span className="text-[#334155] text-xs uppercase tracking-widest">Certified Partners</span>
+            <span className="text-[var(--text-faint)] text-xs uppercase tracking-widest">Certified Partners</span>
             <div className="flex items-center gap-4">
               {platforms.map(({ Icon, label }, i) => (
-                <div key={i} title={label} className="text-[#334155] hover:text-[#64748B] transition-colors">
+                <div key={i} title={label} className="text-[var(--text-faint)] hover:text-[var(--text-muted)] transition-colors">
                   <Icon size={18} />
                 </div>
               ))}
@@ -47,10 +47,10 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-8 border-t border-white/[0.04]">
-          <p className="text-[#334155] text-xs">
+          <p className="text-[var(--text-faint)] text-xs">
             © {year} Prime Reach Digital · Melbourne, VIC
           </p>
-          <div className="flex items-center gap-6 text-xs text-[#334155]">
+          <div className="flex items-center gap-6 text-xs text-[var(--text-faint)]">
             <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
             <a href="#contact" className="hover:text-white transition-colors">Contact</a>

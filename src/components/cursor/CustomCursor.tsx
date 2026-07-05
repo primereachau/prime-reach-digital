@@ -57,7 +57,7 @@ export default function CustomCursor() {
 
   const dotSize = variant === "hover" ? 6 : variant === "cta" ? 8 : 5;
   const ringSize = variant === "hover" ? 44 : variant === "cta" ? 56 : 32;
-  const dotColor = variant === "cta" ? "#FF1744" : "#ffffff";
+  const dotColor = variant === "cta" ? "var(--pr-crimson)" : "#ffffff";
   const ringColor = variant === "cta" ? "rgba(255,23,68,0.5)" : "rgba(255,255,255,0.35)";
   const ringBg = variant === "cta" ? "rgba(255,23,68,0.08)" : "transparent";
 

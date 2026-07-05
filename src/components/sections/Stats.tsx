@@ -47,9 +47,9 @@ export default function Stats() {
   return (
     <section id="results" ref={ref} className="relative py-24 lg:py-32 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0066FF]/[0.03] to-transparent" />
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#0066FF]/20 to-transparent" />
-      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#0066FF]/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--pr-blue)]/[0.03] to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[var(--pr-blue)]/20 to-transparent" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[var(--pr-blue)]/20 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header */}
@@ -59,10 +59,7 @@ export default function Stats() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-[#0066FF] text-xs font-semibold uppercase tracking-[0.2em]">
-            The Numbers
-          </span>
-          <h2 className="mt-3 text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
             Real Results.
             <br />
             <span className="gradient-text-brand">No Fluff.</span>
@@ -77,12 +74,12 @@ export default function Stats() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="bg-[#070d1f] p-8 lg:p-10 flex flex-col gap-3"
+              className="bg-[var(--pr-navy)] p-8 lg:p-10 flex flex-col gap-3"
             >
               <Counter target={stat.value} suffix={stat.suffix} />
               <div>
                 <div className="text-white font-semibold text-sm">{stat.label}</div>
-                <div className="text-[#475569] text-xs mt-1">{stat.desc}</div>
+                <div className="text-[var(--text-dimmer)] text-xs mt-1">{stat.desc}</div>
               </div>
             </motion.div>
           ))}

@@ -43,43 +43,43 @@ const faqs = [
 
 export default function GoogleAdsMelbourne() {
   return (
-    <main className="min-h-screen bg-[#020816] text-white overflow-x-hidden">
+    <main className="min-h-screen bg-[var(--pr-black)] text-white overflow-x-hidden">
       <div className="border-b border-white/[0.06] py-6 px-6 lg:px-10">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-lg bg-[#0066FF] flex items-center justify-center">
+            <div className="w-7 h-7 rounded-lg bg-[var(--pr-blue)] flex items-center justify-center">
               <span className="text-white font-bold text-xs">PR</span>
             </div>
             <span className="text-white font-semibold text-[15px]">
-              Prime<span className="text-[#0066FF]">Reach</span> Digital
+              Prime<span className="text-[var(--pr-blue)]">Reach</span> Digital
             </span>
           </Link>
-          <Link href="/" className="text-sm text-[#64748B] hover:text-white transition-colors">
+          <Link href="/" className="text-sm text-[var(--text-muted)] hover:text-white transition-colors">
             ← Back to Home
           </Link>
         </div>
       </div>
 
       <div className="max-w-5xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
-        <span className="text-[#0066FF] text-xs font-semibold uppercase tracking-[0.2em]">
+        <span className="text-[var(--pr-blue)] text-xs font-semibold uppercase tracking-[0.2em]">
           Melbourne Google Ads Specialists
         </span>
         <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight max-w-3xl">
           Google Ads Management Melbourne Businesses Rely On for Fast Leads
         </h1>
-        <p className="mt-6 text-[#94a3b8] text-lg leading-relaxed max-w-2xl">
+        <p className="mt-6 text-[var(--text-dim)] text-lg leading-relaxed max-w-2xl">
           Waiting months for SEO to work isn&apos;t always an option. Our Google Ads campaigns
           put your business directly in front of Melbourne customers actively searching for
           your services — often generating qualified leads within days.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mt-8">
-          <a href="#contact-cta" className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-[#FF1744] hover:bg-[#FF4D6D] transition-colors font-semibold text-white text-base">
+          <a href="#contact-cta" className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-[var(--pr-crimson)] hover:bg-[var(--pr-crimson-light)] transition-colors font-semibold text-white text-base">
             Book a Free Strategy Call
             <ArrowRight size={18} />
           </a>
-          <a href="tel:0490881483" className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl glass border border-[#0066FF]/30 hover:border-[#0066FF]/60 text-white font-semibold text-base transition-all">
-            <Phone size={16} className="text-[#0066FF]" />
+          <a href="tel:0490881483" className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl glass border border-[var(--pr-blue)]/30 hover:border-[var(--pr-blue)]/60 text-white font-semibold text-base transition-all">
+            <Phone size={16} className="text-[var(--pr-blue)]" />
             0490 881 483
           </a>
         </div>
@@ -87,7 +87,7 @@ export default function GoogleAdsMelbourne() {
 
       <div className="max-w-5xl mx-auto px-6 lg:px-10 py-12 border-t border-white/[0.06]">
         <h2 className="text-3xl font-bold text-white mb-6">Why Melbourne Businesses Choose Google Ads</h2>
-        <p className="text-[#94a3b8] text-base leading-relaxed max-w-3xl mb-8">
+        <p className="text-[var(--text-dim)] text-base leading-relaxed max-w-3xl mb-8">
           Google Ads puts you at the very top of search results — above organic rankings —
           the moment your campaign goes live. For Melbourne businesses that need leads now,
           not in six months, it&apos;s one of the fastest paths to growth.
@@ -96,8 +96,8 @@ export default function GoogleAdsMelbourne() {
         <div className="grid sm:grid-cols-2 gap-4 max-w-3xl">
           {benefits.map((b, i) => (
             <div key={i} className="flex items-start gap-3">
-              <CheckCircle2 size={18} className="text-[#0066FF] mt-0.5 flex-shrink-0" />
-              <span className="text-[#94a3b8] text-sm leading-relaxed">{b}</span>
+              <CheckCircle2 size={18} className="text-[var(--pr-blue)] mt-0.5 flex-shrink-0" />
+              <span className="text-[var(--text-dim)] text-sm leading-relaxed">{b}</span>
             </div>
           ))}
         </div>
@@ -112,10 +112,10 @@ export default function GoogleAdsMelbourne() {
             { step: "03", title: "Conversion Tracking Setup", desc: "We set up call and form tracking so every dollar spent is measurable and accountable." },
             { step: "04", title: "Ongoing Optimisation", desc: "We continuously test and refine your campaigns to lower cost per lead and improve results month over month." },
           ].map((item, i) => (
-            <div key={i} className="p-6 rounded-2xl border border-white/[0.06] bg-[#070d1f]">
-              <span className="text-[#0066FF] font-bold text-sm">{item.step}</span>
+            <div key={i} className="p-6 rounded-2xl border border-white/[0.06] bg-[var(--pr-navy)]">
+              <span className="text-[var(--pr-blue)] font-bold text-sm">{item.step}</span>
               <h3 className="text-white font-semibold text-lg mt-2 mb-2">{item.title}</h3>
-              <p className="text-[#64748B] text-sm leading-relaxed">{item.desc}</p>
+              <p className="text-[var(--text-muted)] text-sm leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -127,7 +127,7 @@ export default function GoogleAdsMelbourne() {
           {faqs.map((f, i) => (
             <div key={i}>
               <h3 className="text-white font-semibold text-lg mb-2">{f.q}</h3>
-              <p className="text-[#94a3b8] text-sm leading-relaxed">{f.a}</p>
+              <p className="text-[var(--text-dim)] text-sm leading-relaxed">{f.a}</p>
             </div>
           ))}
         </div>
@@ -135,11 +135,11 @@ export default function GoogleAdsMelbourne() {
 
       <div id="contact-cta" className="max-w-5xl mx-auto px-6 lg:px-10 py-16 border-t border-white/[0.06] text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready for Leads This Week?</h2>
-        <p className="text-[#64748B] text-base mb-8 max-w-xl mx-auto">
+        <p className="text-[var(--text-muted)] text-base mb-8 max-w-xl mx-auto">
           Book a free strategy call and find out how Google Ads can start generating leads for
           your business fast.
         </p>
-        <Link href="/#contact" className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-[#FF1744] hover:bg-[#FF4D6D] transition-colors font-semibold text-white text-base">
+        <Link href="/#contact" className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-[var(--pr-crimson)] hover:bg-[var(--pr-crimson-light)] transition-colors font-semibold text-white text-base">
           Book Your Free Strategy Call
           <ArrowRight size={18} />
         </Link>
@@ -147,8 +147,8 @@ export default function GoogleAdsMelbourne() {
 
       <div className="border-t border-white/[0.06] py-8 px-6 lg:px-10">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[#334155] text-xs">© {new Date().getFullYear()} Prime Reach Digital · Melbourne, VIC</p>
-          <Link href="/" className="text-xs text-[#0066FF] hover:underline">Back to Home</Link>
+          <p className="text-[var(--text-faint)] text-xs">© {new Date().getFullYear()} Prime Reach Digital · Melbourne, VIC</p>
+          <Link href="/" className="text-xs text-[var(--pr-blue)] hover:underline">Back to Home</Link>
         </div>
       </div>
     </main>

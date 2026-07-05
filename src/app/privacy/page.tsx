@@ -7,19 +7,19 @@ export const metadata = {
 
 export default function PrivacyPolicy() {
   return (
-    <main className="min-h-screen bg-[#020816] text-white">
+    <main className="min-h-screen bg-[var(--pr-black)] text-white">
       {/* Header */}
       <div className="border-b border-white/[0.06] py-6 px-6 lg:px-10">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-lg bg-[#0066FF] flex items-center justify-center">
+            <div className="w-7 h-7 rounded-lg bg-[var(--pr-blue)] flex items-center justify-center">
               <span className="text-white font-bold text-xs">PR</span>
             </div>
             <span className="text-white font-semibold text-[15px]">
-              Prime<span className="text-[#0066FF]">Reach</span> Digital
+              Prime<span className="text-[var(--pr-blue)]">Reach</span> Digital
             </span>
           </Link>
-          <Link href="/" className="text-sm text-[#64748B] hover:text-white transition-colors">
+          <Link href="/" className="text-sm text-[var(--text-muted)] hover:text-white transition-colors">
             ← Back to Home
           </Link>
         </div>
@@ -28,12 +28,12 @@ export default function PrivacyPolicy() {
       {/* Content */}
       <div className="max-w-4xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
         <div className="mb-12">
-          <span className="text-[#0066FF] text-xs font-semibold uppercase tracking-[0.2em]">Legal</span>
+          <span className="text-[var(--pr-blue)] text-xs font-semibold uppercase tracking-[0.2em]">Legal</span>
           <h1 className="mt-3 text-4xl md:text-5xl font-bold text-white leading-tight">Privacy Policy</h1>
-          <p className="mt-4 text-[#64748B]">Last updated: 1 July 2026</p>
+          <p className="mt-4 text-[var(--text-muted)]">Last updated: 1 July 2026</p>
         </div>
 
-        <div className="space-y-10 text-[#94a3b8] leading-relaxed">
+        <div className="space-y-10 text-[var(--text-dim)] leading-relaxed">
 
           <section>
             <h2 className="text-white font-semibold text-xl mb-3">1. About Us</h2>
@@ -116,7 +116,7 @@ export default function PrivacyPolicy() {
 
           <section>
             <h2 className="text-white font-semibold text-xl mb-3">10. Complaints</h2>
-            <p>If you believe we have breached the Australian Privacy Principles, you may contact us directly. If you are not satisfied with our response, you may lodge a complaint with the Office of the Australian Information Commissioner (OAIC) at <a href="https://www.oaic.gov.au" target="_blank" rel="noopener noreferrer" className="text-[#0066FF] hover:underline">www.oaic.gov.au</a>.</p>
+            <p>If you believe we have breached the Australian Privacy Principles, you may contact us directly. If you are not satisfied with our response, you may lodge a complaint with the Office of the Australian Information Commissioner (OAIC) at <a href="https://www.oaic.gov.au" target="_blank" rel="noopener noreferrer" className="text-[var(--pr-blue)] hover:underline">www.oaic.gov.au</a>.</p>
           </section>
 
           <section>
@@ -129,8 +129,8 @@ export default function PrivacyPolicy() {
             <p className="mb-4">For any privacy-related questions or requests, please contact:</p>
             <div className="space-y-1">
               <p><strong className="text-white">Prime Reach Digital</strong></p>
-              <p>Email: <a href="mailto:primereachau@gmail.com" className="text-[#0066FF] hover:underline">primereachau@gmail.com</a></p>
-              <p>Phone: <a href="tel:0490881483" className="text-[#0066FF] hover:underline">0490 881 483</a></p>
+              <p>Email: <a href="mailto:primereachau@gmail.com" className="text-[var(--pr-blue)] hover:underline">primereachau@gmail.com</a></p>
+              <p>Phone: <a href="tel:0490881483" className="text-[var(--pr-blue)] hover:underline">0490 881 483</a></p>
               <p>Location: Melbourne, VIC, Australia</p>
             </div>
           </section>
@@ -141,8 +141,8 @@ export default function PrivacyPolicy() {
       {/* Footer */}
       <div className="border-t border-white/[0.06] py-8 px-6 lg:px-10">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[#334155] text-xs">© {new Date().getFullYear()} Prime Reach Digital · Melbourne, VIC</p>
-          <Link href="/" className="text-xs text-[#0066FF] hover:underline">Back to Home</Link>
+          <p className="text-[var(--text-faint)] text-xs">© {new Date().getFullYear()} Prime Reach Digital · Melbourne, VIC</p>
+          <Link href="/" className="text-xs text-[var(--pr-blue)] hover:underline">Back to Home</Link>
         </div>
       </div>
     </main>

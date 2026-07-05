@@ -22,15 +22,15 @@ export default function FloatingCallButton() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 24, scale: 0.9 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3.5 rounded-2xl text-white shadow-2xl shadow-[#0066FF]/30 hover:shadow-[#0066FF]/50 hover:scale-105 transition-transform duration-200"
-          style={{ background: "linear-gradient(135deg, #0066FF 0%, #0052CC 100%)" }}
+          className="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3.5 rounded-2xl text-white shadow-2xl shadow-[var(--pr-blue)]/30 hover:shadow-[var(--pr-blue)]/50 hover:scale-105 transition-transform duration-200"
+          style={{ background: "linear-gradient(135deg, var(--pr-blue) 0%, #0052CC 100%)" }}
         >
           {/* Pulsing ring */}
-          <span className="absolute inset-0 rounded-2xl animate-ping opacity-20 bg-[#0066FF]" />
+          <span className="absolute inset-0 rounded-2xl animate-ping opacity-20 bg-[var(--pr-blue)]" />
 
           <div className="relative flex-shrink-0">
             <Phone size={18} />
-            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-[#00C853] border-2 border-[#0066FF]" />
+            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-[#00C853] border-2 border-[var(--pr-blue)]" />
           </div>
 
           <div>

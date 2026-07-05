@@ -8,9 +8,9 @@ import MagneticButton from "@/components/ui/MagneticButton";
 
 const words = ["We Get Local Businesses", "Found on Google.", "More Customers. More Growth."];
 const stats = [
-  { icon: Search, value: "#1", label: "Google Rankings", color: "#0066FF" },
+  { icon: Search, value: "#1", label: "Google Rankings", color: "var(--pr-blue)" },
   { icon: TrendingUp, value: "3×", label: "More Enquiries", color: "#00C853" },
-  { icon: Zap, value: "24h", label: "Response Time", color: "#FF1744" },
+  { icon: Zap, value: "24h", label: "Response Time", color: "var(--pr-crimson)" },
 ];
 
 // Google SERP result mockup rows
@@ -97,9 +97,9 @@ export default function Hero() {
                 transition={{ duration: 0.5 }}
                 className="inline-flex items-center gap-2.5 mb-8"
               >
-                <span className="flex items-center gap-2 glass border border-[#0066FF]/20 px-4 py-2 rounded-full">
+                <span className="flex items-center gap-2 glass border border-[var(--pr-blue)]/20 px-4 py-2 rounded-full">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#00C853] shadow-[0_0_6px_#00C853]" />
-                  <span className="text-[#94a3b8] text-xs font-medium tracking-wide">
+                  <span className="text-[var(--text-dim)] text-xs font-medium tracking-wide">
                     Melbourne&apos;s Local SEO Specialists
                   </span>
                 </span>
@@ -108,7 +108,7 @@ export default function Hero() {
           </AnimatePresence>
 
           {/* Headline */}
-          <motion.div
+          <motion.h1
             variants={containerVariants}
             initial="hidden"
             animate={mounted ? "visible" : "hidden"}
@@ -129,7 +129,7 @@ export default function Hero() {
                 </motion.div>
               </div>
             ))}
-          </motion.div>
+          </motion.h1>
 
           {/* Subtitle */}
           <motion.p
@@ -137,7 +137,7 @@ export default function Hero() {
             initial="hidden"
             animate={mounted ? "visible" : "hidden"}
             transition={{ delay: 0.7 }}
-            className="text-[#64748B] text-lg leading-relaxed max-w-2xl mb-10"
+            className="text-[var(--text-muted)] text-lg leading-relaxed max-w-2xl mb-10"
           >
             If customers can&apos;t find you on Google, they&apos;re calling your competitor. We specialise
             in getting Melbourne local businesses to the top of Google — more calls, more
@@ -157,11 +157,11 @@ export default function Hero() {
                 href="#contact"
                 className="group relative inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl overflow-hidden font-semibold text-white text-base"
               >
-                <span className="absolute inset-0 bg-[#FF1744] transition-transform duration-300" />
+                <span className="absolute inset-0 bg-[var(--pr-crimson)] transition-transform duration-300" />
                 <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: "linear-gradient(135deg, #FF1744 0%, #FF6B6B 100%)" }}
+                  style={{ background: "linear-gradient(135deg, var(--pr-crimson) 0%, #FF6B6B 100%)" }}
                 />
-                <span className="absolute inset-0 opacity-0 group-hover:opacity-60 blur-xl transition-opacity duration-500 bg-[#FF1744]" />
+                <span className="absolute inset-0 opacity-0 group-hover:opacity-60 blur-xl transition-opacity duration-500 bg-[var(--pr-crimson)]" />
                 <span className="relative z-10">Book a Free Strategy Call</span>
                 <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform duration-200" />
               </a>
@@ -170,9 +170,9 @@ export default function Hero() {
             <MagneticButton>
               <a
                 href="tel:0490881483"
-                className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl glass border border-[#0066FF]/30 hover:border-[#0066FF]/60 text-white font-semibold text-base transition-all duration-300"
+                className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl glass border border-[var(--pr-blue)]/30 hover:border-[var(--pr-blue)]/60 text-white font-semibold text-base transition-all duration-300"
               >
-                <Phone size={16} className="text-[#0066FF]" />
+                <Phone size={16} className="text-[var(--pr-blue)]" />
                 <span>0490 881 483</span>
               </a>
             </MagneticButton>
@@ -198,7 +198,7 @@ export default function Hero() {
                   </div>
                   <div>
                     <div className="text-white font-bold text-lg leading-tight">{s.value}</div>
-                    <div className="text-[#475569] text-xs">{s.label}</div>
+                    <div className="text-[var(--text-dimmer)] text-xs">{s.label}</div>
                   </div>
                 </div>
               );
@@ -218,7 +218,7 @@ export default function Hero() {
             {/* Label above */}
             <div className="flex items-center justify-center gap-2 mb-3">
               <div className="h-px flex-1 bg-white/10" />
-              <span className="text-[#64748B] text-[11px] font-medium px-2">This is what Google looks like</span>
+              <span className="text-[var(--text-muted)] text-[11px] font-medium px-2">This is what Google looks like</span>
               <div className="h-px flex-1 bg-white/10" />
             </div>
 
@@ -233,7 +233,7 @@ export default function Hero() {
                   <path d="M25 6.19c-3.21 0-5.83 2.44-5.83 5.81 0 3.34 2.62 5.81 5.83 5.81s5.83-2.46 5.83-5.81c0-3.37-2.62-5.81-5.83-5.81zm0 9.33c-1.76 0-3.28-1.45-3.28-3.52 0-2.09 1.52-3.52 3.28-3.52s3.28 1.43 3.28 3.52c0 2.07-1.52 3.52-3.28 3.52z" fill="#EA4335"/>
                   <path d="M53.58 7.49h-.09c-.57-.68-1.67-1.3-3.06-1.3C47.53 6.19 45 8.72 45 12c0 3.26 2.53 5.81 5.43 5.81 1.39 0 2.49-.62 3.06-1.32h.09v.81c0 2.22-1.19 3.41-3.1 3.41-1.56 0-2.53-1.12-2.93-2.07l-2.22.92c.64 1.54 2.33 3.43 5.15 3.43 2.99 0 5.52-1.76 5.52-6.05V6.49h-2.42v1zm-2.93 8.03c-1.76 0-3.1-1.5-3.1-3.52 0-2.05 1.34-3.52 3.1-3.52 1.74 0 3.1 1.49 3.1 3.54.01 2.03-1.36 3.5-3.1 3.5z" fill="#4285F4"/>
                   <path d="M38 6.19c-3.21 0-5.83 2.44-5.83 5.81 0 3.34 2.62 5.81 5.83 5.81s5.83-2.46 5.83-5.81c0-3.37-2.62-5.81-5.83-5.81zm0 9.33c-1.76 0-3.28-1.45-3.28-3.52 0-2.09 1.52-3.52 3.28-3.52s3.28 1.43 3.28 3.52c0 2.07-1.52 3.52-3.28 3.52z" fill="#FBBC05"/>
-                  <path d="M58 .24h2.51v17.57H58z" fill="#34A853"/>
+                  <path d="M58 .24h2.51v17.57H58z" fill="var(--pr-green)"/>
                   <path d="M68.26 15.52c-1.3 0-2.22-.59-2.82-1.76l7.77-3.21-.26-.66c-.48-1.3-1.96-3.7-4.97-3.7-2.99 0-5.48 2.35-5.48 5.81 0 3.26 2.46 5.81 5.76 5.81 2.66 0 4.2-1.63 4.84-2.57l-1.98-1.32c-.66.96-1.56 1.6-2.86 1.6zm-.18-7.15c1.03 0 1.91.53 2.2 1.28l-5.25 2.17c0-2.44 1.73-3.45 3.05-3.45z" fill="#EA4335"/>
                 </svg>
                 {/* Search input */}
@@ -306,7 +306,7 @@ export default function Hero() {
                       </div>
                       <div className="text-[#70757a] text-[10px]">Plumber · Melbourne</div>
                       <div className="flex items-center gap-1 mt-0.5">
-                        <span className="text-[#34a853] text-[10px] font-medium">Open</span>
+                        <span className="text-[var(--pr-green)] text-[10px] font-medium">Open</span>
                         <span className="text-[#70757a] text-[10px]">· Closes 6 pm · 0490 881 483</span>
                       </div>
                     </div>
@@ -357,15 +357,15 @@ export default function Hero() {
               className="mt-auto pt-5 flex flex-col items-center gap-1"
             >
               <div className="flex items-center gap-2">
-                <div className="h-px w-8 bg-[#34A853]/40" />
-                <span className="text-[#34A853] text-[11px] font-semibold uppercase tracking-[0.18em]">This is where people search</span>
-                <div className="h-px w-8 bg-[#34A853]/40" />
+                <div className="h-px w-8 bg-[var(--pr-green)]/40" />
+                <span className="text-[var(--pr-green)] text-[11px] font-semibold uppercase tracking-[0.18em]">This is where people search</span>
+                <div className="h-px w-8 bg-[var(--pr-green)]/40" />
               </div>
               <p className="text-white text-xl font-bold tracking-tight">
                 We get your business to{" "}
-                <span className="text-[#34A853]">Position #1</span>
+                <span className="text-[var(--pr-green)]">Position #1</span>
               </p>
-              <p className="text-[#64748B] text-sm">So customers find you — not your competitors.</p>
+              <p className="text-[var(--text-muted)] text-sm">So customers find you — not your competitors.</p>
             </motion.div>
           </motion.div>
 
@@ -378,7 +378,7 @@ export default function Hero() {
           >
             <div className="flex items-center justify-center gap-2 mb-3">
               <div className="h-px flex-1 bg-white/10" />
-              <span className="text-[#64748B] text-[11px] font-medium px-2">Your results dashboard</span>
+              <span className="text-[var(--text-muted)] text-[11px] font-medium px-2">Your results dashboard</span>
               <div className="h-px flex-1 bg-white/10" />
             </div>
 
@@ -390,7 +390,7 @@ export default function Hero() {
                   <path d="M25 6.19c-3.21 0-5.83 2.44-5.83 5.81 0 3.34 2.62 5.81 5.83 5.81s5.83-2.46 5.83-5.81c0-3.37-2.62-5.81-5.83-5.81zm0 9.33c-1.76 0-3.28-1.45-3.28-3.52 0-2.09 1.52-3.52 3.28-3.52s3.28 1.43 3.28 3.52c0 2.07-1.52 3.52-3.28 3.52z" fill="#EA4335"/>
                   <path d="M53.58 7.49h-.09c-.57-.68-1.67-1.3-3.06-1.3C47.53 6.19 45 8.72 45 12c0 3.26 2.53 5.81 5.43 5.81 1.39 0 2.49-.62 3.06-1.32h.09v.81c0 2.22-1.19 3.41-3.1 3.41-1.56 0-2.53-1.12-2.93-2.07l-2.22.92c.64 1.54 2.33 3.43 5.15 3.43 2.99 0 5.52-1.76 5.52-6.05V6.49h-2.42v1zm-2.93 8.03c-1.76 0-3.1-1.5-3.1-3.52 0-2.05 1.34-3.52 3.1-3.52 1.74 0 3.1 1.49 3.1 3.54.01 2.03-1.36 3.5-3.1 3.5z" fill="#4285F4"/>
                   <path d="M38 6.19c-3.21 0-5.83 2.44-5.83 5.81 0 3.34 2.62 5.81 5.83 5.81s5.83-2.46 5.83-5.81c0-3.37-2.62-5.81-5.83-5.81zm0 9.33c-1.76 0-3.28-1.45-3.28-3.52 0-2.09 1.52-3.52 3.28-3.52s3.28 1.43 3.28 3.52c0 2.07-1.52 3.52-3.28 3.52z" fill="#FBBC05"/>
-                  <path d="M58 .24h2.51v17.57H58z" fill="#34A853"/>
+                  <path d="M58 .24h2.51v17.57H58z" fill="var(--pr-green)"/>
                   <path d="M68.26 15.52c-1.3 0-2.22-.59-2.82-1.76l7.77-3.21-.26-.66c-.48-1.3-1.96-3.7-4.97-3.7-2.99 0-5.48 2.35-5.48 5.81 0 3.26 2.46 5.81 5.76 5.81 2.66 0 4.2-1.63 4.84-2.57l-1.98-1.32c-.66.96-1.56 1.6-2.86 1.6zm-.18-7.15c1.03 0 1.91.53 2.2 1.28l-5.25 2.17c0-2.44 1.73-3.45 3.05-3.45z" fill="#EA4335"/>
                 </svg>
                 <span className="text-[#5f6368] text-[11px] font-medium">Business Profile · Last 28 days</span>
@@ -408,7 +408,7 @@ export default function Hero() {
                     <span className="text-[#5f6368] text-[10px]">4.9 · 127 reviews</span>
                   </div>
                 </div>
-                <span className="text-[#34a853] text-[11px] font-semibold">● Open</span>
+                <span className="text-[var(--pr-green)] text-[11px] font-semibold">● Open</span>
               </div>
 
               {/* Stats grid */}
@@ -416,7 +416,7 @@ export default function Hero() {
                 <div className="px-3 py-4 text-center bg-[#e8f5e9]">
                   <div className="text-xl font-bold text-[#2e7d32]">847</div>
                   <div className="text-[10px] font-semibold text-[#388e3c] mt-0.5">Views</div>
-                  <div className="text-[10px] text-[#34a853] mt-0.5">↑ 312%</div>
+                  <div className="text-[10px] text-[var(--pr-green)] mt-0.5">↑ 312%</div>
                 </div>
                 <div className="px-3 py-4 text-center bg-[#e3f2fd]">
                   <div className="text-xl font-bold text-[#1565c0]">234</div>
@@ -453,9 +453,9 @@ export default function Hero() {
               className="mt-auto pt-5 flex flex-col items-center gap-1"
             >
               <p className="text-white text-xl font-bold tracking-tight text-center">
-                Real results, <span className="text-[#0066FF]">every month.</span>
+                Real results, <span className="text-[var(--pr-blue)]">every month.</span>
               </p>
-              <p className="text-[#64748B] text-sm text-center">We show you exactly what&apos;s working.</p>
+              <p className="text-[var(--text-muted)] text-sm text-center">We show you exactly what&apos;s working.</p>
             </motion.div>
           </motion.div>
 
@@ -479,7 +479,7 @@ export default function Hero() {
         />
       </motion.div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#020816] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[var(--pr-black)] to-transparent pointer-events-none" />
     </section>
   );
 }

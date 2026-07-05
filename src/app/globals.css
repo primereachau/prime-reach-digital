@@ -42,6 +42,8 @@
   --pr-crimson: #FF1744;
   --pr-crimson-light: #FF4D6D;
   --pr-crimson-dim:   rgba(255, 23, 68, 0.12);
+  --pr-green:   #34A853;
+  --pr-green-dim: rgba(52, 168, 83, 0.12);
 
   /* Glass surfaces */
   --glass:         rgba(255, 255, 255, 0.04);
@@ -57,6 +59,9 @@
   --text:        #E8EEFF;
   --text-muted:  #64748B;
   --text-subtle: #1e293b;
+  --text-dim:    #94a3b8;
+  --text-faint:  #334155;
+  --text-dimmer: #475569;
 
   /* shadcn tokens */
   --background:          #020816;
@@ -111,10 +116,7 @@
 }
 
 .gradient-text-brand {
-  background: linear-gradient(135deg, #3385FF 0%, #0066FF 40%, #FF1744 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--pr-blue);
 }
 
 .gradient-text-white {

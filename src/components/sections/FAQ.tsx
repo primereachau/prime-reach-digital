@@ -52,7 +52,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-5 lg:py-6 text-left group"
       >
-        <span className="text-white font-medium text-base lg:text-[17px] pr-8 group-hover:text-[#3385FF] transition-colors duration-200 leading-snug">
+        <span className="text-white font-medium text-base lg:text-[17px] pr-8 group-hover:text-[var(--pr-blue-light)] transition-colors duration-200 leading-snug">
           {q}
         </span>
         <motion.div
@@ -60,7 +60,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
           transition={{ duration: 0.2 }}
           className="flex-shrink-0 w-7 h-7 rounded-full glass border border-white/[0.08] flex items-center justify-center"
         >
-          <Plus size={14} className="text-[#64748B]" />
+          <Plus size={14} className="text-[var(--text-muted)]" />
         </motion.div>
       </button>
 
@@ -73,7 +73,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
             transition={{ duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
             className="overflow-hidden"
           >
-            <p className="text-[#64748B] text-base leading-relaxed pb-6 pr-10">
+            <p className="text-[var(--text-muted)] text-base leading-relaxed pb-6 pr-10">
               {a}
             </p>
           </motion.div>
@@ -89,7 +89,7 @@ export default function FAQ() {
 
   return (
     <section id="faq" ref={ref} className="relative py-28 lg:py-36">
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#FF1744]/20 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[var(--pr-crimson)]/20 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid lg:grid-cols-[380px_1fr] gap-16 lg:gap-24 items-start">
@@ -101,20 +101,17 @@ export default function FAQ() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-[#FF1744] text-xs font-semibold uppercase tracking-[0.2em]">
-                FAQ
-              </span>
-              <h2 className="mt-3 text-4xl md:text-5xl font-bold text-white leading-[1.08] tracking-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-white leading-[1.08] tracking-tight">
                 Questions?
                 <br />
                 <span className="gradient-text-brand">We&apos;ve Got Answers.</span>
               </h2>
-              <p className="mt-4 text-[#64748B] text-lg leading-relaxed">
+              <p className="mt-4 text-[var(--text-muted)] text-lg leading-relaxed">
                 Everything you need to know before working with us.
               </p>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 mt-8 text-[#3385FF] text-sm font-medium hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 mt-8 text-[var(--pr-blue-light)] text-sm font-medium hover:text-white transition-colors"
               >
                 Still have questions? Talk to us →
               </a>

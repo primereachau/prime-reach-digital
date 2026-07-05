@@ -8,7 +8,7 @@ const steps = [
   {
     num: "01",
     icon: PhoneCall,
-    color: "#0066FF",
+    color: "var(--pr-blue)",
     bg: "rgba(0,102,255,0.12)",
     title: "Free Strategy Call",
     desc: "We start with a no-obligation 30-minute call to understand your business, goals, competitors, and current online presence. No pushy sales. Just an honest conversation.",
@@ -85,14 +85,14 @@ function Step({ step, index }: { step: (typeof steps)[0]; index: number }) {
           <span className="text-xs font-bold tracking-widest" style={{ color: step.color }}>
             STEP {step.num}
           </span>
-          <span className="text-xs text-[#334155] border border-white/[0.05] px-2.5 py-0.5 rounded-full">
+          <span className="text-xs text-[var(--text-faint)] border border-white/[0.05] px-2.5 py-0.5 rounded-full">
             {step.detail}
           </span>
         </div>
         <h3 className="text-white font-bold text-xl lg:text-2xl mb-3 tracking-tight">
           {step.title}
         </h3>
-        <p className="text-[#475569] text-base leading-relaxed max-w-lg">
+        <p className="text-[var(--text-dimmer)] text-base leading-relaxed max-w-lg">
           {step.desc}
         </p>
       </div>
@@ -106,7 +106,7 @@ export default function Process() {
 
   return (
     <section id="process" ref={ref} className="relative py-28 lg:py-36 overflow-hidden">
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#0066FF]/20 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[var(--pr-blue)]/20 to-transparent" />
 
       {/* Glow */}
       <div className="absolute left-0 top-1/2 w-[500px] h-[500px] rounded-full pointer-events-none opacity-30"
@@ -123,15 +123,12 @@ export default function Process() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-[#0066FF] text-xs font-semibold uppercase tracking-[0.2em]">
-                How It Works
-              </span>
-              <h2 className="mt-3 text-4xl md:text-5xl font-bold text-white leading-[1.08] tracking-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-white leading-[1.08] tracking-tight">
                 A Simple Process.
                 <br />
                 <span className="gradient-text-blue">Real Results.</span>
               </h2>
-              <p className="mt-4 text-[#64748B] text-lg leading-relaxed">
+              <p className="mt-4 text-[var(--text-muted)] text-lg leading-relaxed">
                 No jargon. No confusion. From first call to consistent growth — here&apos;s exactly
                 what working with us looks like.
               </p>
@@ -140,7 +137,7 @@ export default function Process() {
                 href="#contact"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 mt-8 px-6 py-3.5 rounded-xl bg-[#0066FF] text-white text-sm font-semibold"
+                className="inline-flex items-center gap-2 mt-8 px-6 py-3.5 rounded-xl bg-[var(--pr-blue)] text-white text-sm font-semibold"
                 data-cursor-cta
               >
                 Start With a Free Call

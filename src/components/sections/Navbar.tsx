@@ -68,7 +68,7 @@ export default function Navbar() {
               <path d="M19 10h7c2.2 0 4 1.8 4 4 0 1.6-.9 3-2.3 3.7L31 26h-3.5l-2.9-7.5H22V26h-3V10zm3 3v3.5h4c.8 0 1.5-.7 1.5-1.5S26.8 13 26 13h-4z" fill="url(#rGrad)"/>
             </svg>
             <span className="text-white font-bold text-base md:text-xl tracking-tight">
-              Prime<span className="text-[#0066FF]">Reach</span> <span className="text-white/80">Digital</span>
+              Prime<span className="text-[var(--pr-blue)]">Reach</span> <span className="text-white/80">Digital</span>
             </span>
           </motion.a>
 
@@ -83,11 +83,11 @@ export default function Navbar() {
                 transition={{ delay: 0.05 * i + 0.2 }}
                 onMouseEnter={() => setActive(l.href)}
                 onMouseLeave={() => setActive("")}
-                className="relative px-4 py-2 text-sm text-[#64748B] hover:text-white transition-colors duration-200 group"
+                className="relative px-4 py-2 text-sm text-[var(--text-muted)] hover:text-white transition-colors duration-200 group"
               >
                 {l.label}
                 <span
-                  className={`absolute bottom-0 left-4 right-4 h-px bg-[#0066FF] transition-all duration-300 origin-left ${
+                  className={`absolute bottom-0 left-4 right-4 h-px bg-[var(--pr-blue)] transition-all duration-300 origin-left ${
                     active === l.href ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
                   }`}
                 />
@@ -106,10 +106,10 @@ export default function Navbar() {
               href="tel:0490881483"
               className="flex items-center gap-2 group"
             >
-              <div className="w-7 h-7 rounded-lg bg-[#0066FF]/15 flex items-center justify-center group-hover:bg-[#0066FF]/25 transition-colors">
-                <Phone size={13} className="text-[#0066FF]" />
+              <div className="w-7 h-7 rounded-lg bg-[var(--pr-blue)]/15 flex items-center justify-center group-hover:bg-[var(--pr-blue)]/25 transition-colors">
+                <Phone size={13} className="text-[var(--pr-blue)]" />
               </div>
-              <span className="text-white font-bold text-lg tracking-wide group-hover:text-[#0066FF] transition-colors">
+              <span className="text-white font-bold text-lg tracking-wide group-hover:text-[var(--pr-blue)] transition-colors">
                 0490 881 483
               </span>
             </a>
@@ -118,9 +118,9 @@ export default function Navbar() {
                 href="#contact"
                 className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-lg overflow-hidden group"
               >
-                <span className="absolute inset-0 bg-[#FF1744] group-hover:bg-[#FF4D6D] transition-colors duration-300" />
+                <span className="absolute inset-0 bg-[var(--pr-crimson)] group-hover:bg-[var(--pr-crimson-light)] transition-colors duration-300" />
                 <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: "linear-gradient(135deg, #FF1744, #FF6B6B)" }}
+                  style={{ background: "linear-gradient(135deg, var(--pr-crimson), #FF6B6B)" }}
                 />
                 <span className="relative text-white text-sm font-semibold">Free Strategy Call</span>
               </a>
@@ -154,22 +154,22 @@ export default function Navbar() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setMobileOpen(false)}
-                  className="py-3 px-2 text-[#94a3b8] hover:text-white text-base font-medium border-b border-white/[0.04] last:border-0 transition-colors"
+                  className="py-3 px-2 text-[var(--text-dim)] hover:text-white text-base font-medium border-b border-white/[0.04] last:border-0 transition-colors"
                 >
                   {l.label}
                 </a>
               ))}
               <a
                 href="tel:0490881483"
-                className="mt-4 flex items-center justify-center gap-2 py-3.5 rounded-xl glass border border-[#0066FF]/30 text-white font-bold text-lg"
+                className="mt-4 flex items-center justify-center gap-2 py-3.5 rounded-xl glass border border-[var(--pr-blue)]/30 text-white font-bold text-lg"
               >
-                <Phone size={16} className="text-[#0066FF]" />
+                <Phone size={16} className="text-[var(--pr-blue)]" />
                 0490 881 483
               </a>
               <a
                 href="#contact"
                 onClick={() => setMobileOpen(false)}
-                className="mt-2 py-3.5 rounded-xl bg-[#FF1744] text-white font-semibold text-center text-sm"
+                className="mt-2 py-3.5 rounded-xl bg-[var(--pr-crimson)] text-white font-semibold text-center text-sm"
               >
                 Free Strategy Call
               </a>
