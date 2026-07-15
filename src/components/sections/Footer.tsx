@@ -71,7 +71,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-8 border-t border-white/[0.04]">
           <p className="text-[var(--text-faint)] text-xs">
-            © {year} Prime Reach Digital · Melbourne, VIC
+            © {year} Prime Reach Digital · Melbourne, VIC · ABN 75 392 309 190
           </p>
           <div className="flex items-center gap-6 text-xs text-[var(--text-faint)]">
             <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
