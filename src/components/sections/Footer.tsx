@@ -12,11 +12,18 @@ const platforms = [
   { Icon: SiTiktok, label: "TikTok" },
 ];
 
+const serviceLinks = [
+  { href: "/seo-agency-melbourne", label: "SEO Agency Melbourne" },
+  { href: "/google-ads-melbourne", label: "Google Ads Management" },
+  { href: "/website-design-melbourne", label: "Website Design Melbourne" },
+  { href: "/google-business-profile-melbourne", label: "Google Business Profile" },
+];
+
 export default function Footer() {
   return (
     <footer className="relative border-t border-white/[0.06] py-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="grid md:grid-cols-[1fr_auto] gap-8 items-center mb-10">
+        <div className="grid md:grid-cols-[1fr_auto_auto] gap-10 mb-10">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5 mb-3">
@@ -30,6 +37,22 @@ export default function Footer() {
             <p className="text-[var(--text-dimmer)] text-sm max-w-xs leading-relaxed">
               Melbourne's SEO specialists. We help local businesses get found on Google and get more customers calling.
             </p>
+          </div>
+
+          {/* Services links */}
+          <div className="flex flex-col gap-3">
+            <span className="text-[var(--text-faint)] text-xs uppercase tracking-widest">Services</span>
+            <div className="flex flex-col gap-2">
+              {serviceLinks.map((s) => (
+                <a
+                  key={s.href}
+                  href={s.href}
+                  className="text-[var(--text-muted)] hover:text-white text-sm transition-colors"
+                >
+                  {s.label}
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Certified platforms */}
