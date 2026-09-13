@@ -7,6 +7,9 @@ export const metadata = {
     "Melbourne's local SEO agency helping businesses rank #1 on Google. We specialise in Google SEO, Google Business Profile optimisation, and local search rankings for Melbourne businesses.",
   keywords:
     "SEO agency Melbourne, local SEO Melbourne, SEO company Melbourne, Google ranking Melbourne, digital marketing agency Melbourne, SEO services Melbourne",
+  alternates: {
+    canonical: "/seo-agency-melbourne",
+  },
   openGraph: {
     title: "SEO Agency Melbourne | Prime Reach Digital",
     description: "Melbourne's local SEO agency helping businesses rank #1 on Google.",

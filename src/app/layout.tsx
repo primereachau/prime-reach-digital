@@ -10,11 +10,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.primereachdigital.com.au"),
   title: "Prime Reach Digital | Digital Growth Agency Melbourne",
   description:
     "Melbourne's premium digital growth agency. We help local businesses dominate online with website design, SEO, Google Ads, Meta Ads, and social media management.",
   keywords:
     "digital marketing Melbourne, SEO Melbourne, Google Ads Melbourne, website design Melbourne",
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -30,6 +34,14 @@ export const metadata: Metadata = {
     title: "Prime Reach Digital | Digital Growth Agency Melbourne",
     description: "Premium digital growth and website management for Australian businesses.",
     type: "website",
+    url: "/",
+    images: [{ url: "/icon-512.png", width: 512, height: 512 }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Prime Reach Digital | Digital Growth Agency Melbourne",
+    description: "Premium digital growth and website management for Australian businesses.",
+    images: ["/icon-512.png"],
   },
   verification: {
     google: "TkeU0M4dXhomo96cNUuYHR8CDBuUtrgwbVqCZyCCvsw",

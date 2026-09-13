@@ -7,6 +7,9 @@ export const metadata = {
     "Melbourne Google Business Profile management to help your business dominate the Google Map Pack. Optimisation, reviews management, and local visibility.",
   keywords:
     "Google Business Profile Melbourne, Google My Business Melbourne, Google Maps ranking Melbourne, local SEO Melbourne, Google Business Profile management",
+  alternates: {
+    canonical: "/google-business-profile-melbourne",
+  },
   openGraph: {
     title: "Google Business Profile Management Melbourne | Prime Reach Digital",
     description: "Melbourne Google Business Profile management to help you dominate the Map Pack.",

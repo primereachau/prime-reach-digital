@@ -7,6 +7,9 @@ export const metadata = {
     "Melbourne Google Ads agency helping local businesses generate qualified leads fast. Expert Google Ads management, campaign setup, and conversion optimisation.",
   keywords:
     "Google Ads Melbourne, Google Ads agency Melbourne, Google Ads management Melbourne, PPC agency Melbourne, paid search Melbourne",
+  alternates: {
+    canonical: "/google-ads-melbourne",
+  },
   openGraph: {
     title: "Google Ads Management Melbourne | Prime Reach Digital",
     description: "Melbourne Google Ads agency helping local businesses generate qualified leads fast.",

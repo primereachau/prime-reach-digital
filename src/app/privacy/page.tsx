@@ -3,6 +3,9 @@ import Link from "next/link";
 export const metadata = {
   title: "Privacy Policy | Prime Reach Digital",
   description: "Privacy Policy for Prime Reach Digital — Melbourne digital marketing agency.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyPolicy() {

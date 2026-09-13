@@ -7,6 +7,9 @@ export const metadata = {
     "Melbourne website design agency building fast, modern websites for local businesses that convert visitors into customers. Custom design, SEO-ready, mobile-first.",
   keywords:
     "website design Melbourne, web design agency Melbourne, website designer Melbourne, custom website Melbourne, small business website Melbourne",
+  alternates: {
+    canonical: "/website-design-melbourne",
+  },
   openGraph: {
     title: "Website Design Melbourne | Prime Reach Digital",
     description: "Melbourne website design agency building fast, modern websites for local businesses.",
