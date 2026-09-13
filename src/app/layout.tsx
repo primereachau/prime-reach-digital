@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.primereachdigital.com.au"),
   title: "Prime Reach Digital | Digital Growth Agency Melbourne",
   description:
-    "Melbourne's premium digital growth agency. We help local businesses dominate online with website design, SEO, Google Ads, Meta Ads, and social media management.",
+    "Melbourne digital growth agency helping local businesses dominate online with SEO, Google Ads, website design, and social media management.",
   keywords:
     "digital marketing Melbourne, SEO Melbourne, Google Ads Melbourne, website design Melbourne",
   alternates: {

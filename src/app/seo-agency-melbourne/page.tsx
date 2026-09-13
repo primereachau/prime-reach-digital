@@ -4,7 +4,7 @@ import { CheckCircle2, ArrowRight, Phone } from "lucide-react";
 export const metadata = {
   title: "SEO Agency Melbourne | Local SEO Experts | Prime Reach Digital",
   description:
-    "Melbourne's local SEO agency helping businesses rank #1 on Google. We specialise in Google SEO, Google Business Profile optimisation, and local search rankings for Melbourne businesses.",
+    "Melbourne local SEO agency helping businesses rank #1 on Google. We specialise in SEO, Google Business Profile optimisation, and local rankings.",
   keywords:
     "SEO agency Melbourne, local SEO Melbourne, SEO company Melbourne, Google ranking Melbourne, digital marketing agency Melbourne, SEO services Melbourne",
   alternates: {
@@ -50,7 +50,7 @@ const serviceJsonLd = {
   serviceType: "SEO Services",
   name: "SEO Agency Melbourne",
   description:
-    "Melbourne's local SEO agency helping businesses rank #1 on Google. We specialise in Google SEO, Google Business Profile optimisation, and local search rankings for Melbourne businesses.",
+    "Melbourne local SEO agency helping businesses rank #1 on Google. We specialise in SEO, Google Business Profile optimisation, and local rankings.",
   areaServed: "Melbourne, VIC",
   provider: {
     "@type": "LocalBusiness",
