@@ -11,6 +11,7 @@ const links = [
   { label: "Process", href: "#process" },
   { label: "Results", href: "#results" },
   { label: "FAQ", href: "#faq" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export default function Navbar() {

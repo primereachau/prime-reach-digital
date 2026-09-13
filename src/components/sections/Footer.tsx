@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { SiGoogle, SiMeta, SiInstagram, SiFacebook, SiTiktok } from "react-icons/si";
 
 const year = new Date().getFullYear();
@@ -74,6 +75,7 @@ export default function Footer() {
             © {year} Prime Reach Digital · Melbourne, VIC · ABN 75 392 309 190
           </p>
           <div className="flex items-center gap-6 text-xs text-[var(--text-faint)]">
+            <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
             <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
             <a href="#contact" className="hover:text-white transition-colors">Contact</a>
