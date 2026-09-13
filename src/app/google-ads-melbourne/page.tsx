@@ -41,9 +41,45 @@ const faqs = [
   },
 ];
 
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Google Ads Management",
+  name: "Google Ads Management Melbourne",
+  description:
+    "Melbourne Google Ads agency helping local businesses generate qualified leads fast. Expert Google Ads management, campaign setup, and conversion optimisation.",
+  areaServed: "Melbourne, VIC",
+  provider: {
+    "@type": "LocalBusiness",
+    name: "Prime Reach Digital",
+    url: "https://www.primereachdigital.com.au",
+  },
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: f.a,
+    },
+  })),
+};
+
 export default function GoogleAdsMelbourne() {
   return (
     <main className="min-h-screen bg-[var(--pr-black)] text-white overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className="border-b border-white/[0.06] py-6 px-6 lg:px-10">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5">

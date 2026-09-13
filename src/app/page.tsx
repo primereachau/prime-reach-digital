@@ -11,9 +11,28 @@ import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 import FloatingCallButton from "@/components/ui/FloatingCallButton";
 
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Prime Reach Digital",
+  url: "https://www.primereachdigital.com.au",
+  telephone: "+61 490 881 483",
+  areaServed: "Melbourne, VIC",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Melbourne",
+    addressRegion: "VIC",
+    addressCountry: "AU",
+  },
+};
+
 export default function Home() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+      />
       <Navbar />
       <Hero />
       <Marquee />
