@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 import { ChevronDown } from "lucide-react";
+import FreeDemoBanner from "@/components/sections/FreeDemoBanner";
 
 const googleIcon = <svg viewBox="0 0 48 48" width="26" height="26"><path fill="#4285F4" d="M44.5 20H24v8.5h11.7C34.2 33.9 29.6 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 5.1 29.6 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21c10.5 0 20-7.6 20-21 0-1.3-.2-2.7-.5-4z"/><path fill="var(--pr-green)" d="M6.3 14.7l7 5.1C15.1 16.1 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 5.1 29.6 3 24 3c-7.6 0-14.2 4.3-17.7 11.7z"/><path fill="#FBBC05" d="M24 45c5.5 0 10.4-1.9 14.3-5.1l-6.6-5.5C29.7 36 26.9 37 24 37c-5.5 0-10.2-3.7-11.8-8.8l-7 5.4C8.5 40.7 15.7 45 24 45z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.7c-.8 2.4-2.3 4.4-4.3 5.9l6.6 5.5C41.7 36.7 45 31 45 24c0-1.3-.2-2.7-.5-4z"/></svg>;
 
@@ -226,7 +227,7 @@ function EnquiryForm() {
       initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: 0.2 }}
-      className="mt-10 rounded-2xl border border-[var(--pr-blue)]/20 bg-[var(--pr-navy)] overflow-hidden"
+      className="rounded-2xl border border-[var(--pr-blue)]/20 bg-[var(--pr-navy)] overflow-hidden"
     >
       {/* Header strip */}
       <div className="px-7 py-5 border-b border-white/[0.06] flex items-center justify-between gap-4">
@@ -303,46 +304,53 @@ export default function Services() {
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <section id="services" ref={ref} className="relative py-28 lg:py-36 overflow-hidden">
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[var(--pr-blue)]/30 to-transparent" />
+    <>
+      <section id="services" ref={ref} className="relative pt-28 lg:pt-36 pb-20 overflow-hidden">
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[var(--pr-blue)]/30 to-transparent" />
 
-      <div className="max-w-4xl mx-auto px-6 lg:px-10">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-14 text-center"
-        >
-          <span className="text-[var(--pr-blue)] text-xs font-semibold uppercase tracking-[0.2em]">
-            What We Do
-          </span>
-          <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.08] tracking-tight">
-            We Specialise in
-            <br />
-            <span className="gradient-text-brand">Google SEO.</span>
-          </h2>
-          <p className="mt-4 text-[var(--text-muted)] text-lg max-w-2xl mx-auto leading-relaxed">
-            Our main focus is getting your business to the top of Google. We also offer everything else you need to grow online — all under one roof.
-          </p>
-        </motion.div>
+        <div className="max-w-4xl mx-auto px-6 lg:px-10">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="mb-14 text-center"
+          >
+            <span className="text-[var(--pr-blue)] text-xs font-semibold uppercase tracking-[0.2em]">
+              What We Do
+            </span>
+            <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.08] tracking-tight">
+              We Specialise in
+              <br />
+              <span className="gradient-text-brand">Google SEO.</span>
+            </h2>
+            <p className="mt-4 text-[var(--text-muted)] text-lg max-w-2xl mx-auto leading-relaxed">
+              Our main focus is getting your business to the top of Google. We also offer everything else you need to grow online — all under one roof.
+            </p>
+          </motion.div>
 
-        {/* Accordion */}
-        <div className="flex flex-col gap-3">
-          {services.map((service, i) => (
-            <ServiceRow
-              key={i}
-              service={service}
-              index={i}
-              isOpen={openIndex === i}
-              onToggle={() => toggle(i)}
-            />
-          ))}
+          {/* Accordion */}
+          <div className="flex flex-col gap-3">
+            {services.map((service, i) => (
+              <ServiceRow
+                key={i}
+                service={service}
+                index={i}
+                isOpen={openIndex === i}
+                onToggle={() => toggle(i)}
+              />
+            ))}
+          </div>
         </div>
+      </section>
 
-        {/* Enquiry form */}
-        <EnquiryForm />
-      </div>
-    </section>
+      <FreeDemoBanner />
+
+      <section className="relative pt-20 pb-28 lg:pb-36 overflow-hidden">
+        <div className="max-w-4xl mx-auto px-6 lg:px-10">
+          <EnquiryForm />
+        </div>
+      </section>
+    </>
   );
 }
