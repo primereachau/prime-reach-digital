@@ -185,6 +185,23 @@ export default function SEOAgencyMelbourne() {
         </div>
       </div>
 
+      {/* Related Services */}
+      <div className="max-w-5xl mx-auto px-6 lg:px-10 py-12 border-t border-white/[0.06]">
+        <h2 className="text-3xl font-bold text-white mb-6">Related Services</h2>
+        <div className="grid sm:grid-cols-3 gap-6">
+          {[
+            { href: "/google-ads-melbourne", title: "Google Ads Melbourne", desc: "Get qualified leads within days with expertly managed Google Ads campaigns." },
+            { href: "/website-design-melbourne", title: "Website Design Melbourne", desc: "Fast, mobile-first websites built to turn visitors into paying customers." },
+            { href: "/google-business-profile-melbourne", title: "Google Business Profile Melbourne", desc: "Optimise your Google Business Profile to dominate local Map Pack results." },
+          ].map((s) => (
+            <Link key={s.href} href={s.href} className="block p-6 rounded-2xl border border-white/[0.06] bg-[var(--pr-navy)] hover:border-[var(--pr-blue)]/40 transition-colors">
+              <h3 className="text-white font-semibold text-lg mb-2">{s.title}</h3>
+              <p className="text-[var(--text-muted)] text-sm leading-relaxed">{s.desc}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
+
       {/* CTA */}
       <div id="contact-cta" className="max-w-5xl mx-auto px-6 lg:px-10 py-16 border-t border-white/[0.06] text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
