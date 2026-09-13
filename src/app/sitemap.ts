@@ -1,7 +1,15 @@
 import type { MetadataRoute } from "next";
+import { suburbList } from "@/lib/suburbs";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.primereachdigital.com.au";
+
+  const suburbPages: MetadataRoute.Sitemap = suburbList.map((suburb) => ({
+    url: `${baseUrl}/${suburb.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
 
   return [
     {
@@ -40,5 +48,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.3,
     },
+    ...suburbPages,
   ];
 }
