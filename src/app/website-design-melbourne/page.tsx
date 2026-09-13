@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CheckCircle2, ArrowRight, Phone } from "lucide-react";
+import { CheckCircle2, ArrowRight, Phone, ShieldCheck } from "lucide-react";
 
 export const metadata = {
   title: "Website Design Melbourne | Prime Reach Digital",
@@ -26,6 +26,10 @@ const benefits = [
 ];
 
 const faqs = [
+  {
+    q: "Do I have to pay before I see my website?",
+    a: "No. We build you a free, no-obligation demo of your website first, so you know exactly what you're getting before you decide anything. If you love it, we move forward. If it's not for you, there's no cost and no pressure.",
+  },
   {
     q: "How much does a website cost in Melbourne?",
     a: "Pricing depends on the size and complexity of your website. We offer a free consultation to understand your goals and provide a tailored quote — no generic templates, no hidden fees.",
@@ -122,6 +126,19 @@ export default function WebsiteDesignMelbourne() {
             0490 881 483
           </a>
         </div>
+
+        <div className="flex items-start gap-4 mt-8 p-5 rounded-2xl border border-[var(--pr-blue)]/20 bg-[var(--pr-blue)]/05 max-w-2xl">
+          <div className="w-10 h-10 rounded-xl bg-[var(--pr-blue)]/10 flex items-center justify-center flex-shrink-0">
+            <ShieldCheck size={20} className="text-[var(--pr-blue)]" />
+          </div>
+          <div>
+            <h3 className="text-white font-semibold text-base mb-1">See It Before You Pay for It</h3>
+            <p className="text-[var(--text-muted)] text-sm leading-relaxed">
+              We build you a free, working demo of your website first — no cost, no obligation.
+              Like it? We move forward together. If not, walk away with nothing owed.
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className="max-w-5xl mx-auto px-6 lg:px-10 py-12 border-t border-white/[0.06]">
@@ -146,10 +163,10 @@ export default function WebsiteDesignMelbourne() {
         <h2 className="text-3xl font-bold text-white mb-6">Our Website Design Process</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {[
-            { step: "01", title: "Discovery & Strategy", desc: "We learn about your business, customers, and goals to plan a website that actually converts." },
-            { step: "02", title: "Custom Design", desc: "We design a unique layout matching your brand — never a generic template." },
-            { step: "03", title: "Build & SEO Setup", desc: "We build a fast, mobile-first website with SEO best practices baked in from day one." },
-            { step: "04", title: "Launch & Ongoing Support", desc: "We launch your site and offer ongoing management so it's always fast, secure, and up to date." },
+            { step: "01", title: "Discovery", desc: "We learn about your business, customers, and goals to plan a website that actually converts." },
+            { step: "02", title: "Free Demo", desc: "We build a real, working demo of your new website — no cost, no commitment — so you can see exactly what you're getting." },
+            { step: "03", title: "You Decide", desc: "Like what you see? We move forward together. If it's not right for you, there's no cost and no pressure." },
+            { step: "04", title: "Build, Launch & Support", desc: "Once you're happy, we finish the build, launch it, and offer ongoing management so it's always fast, secure, and up to date." },
           ].map((item, i) => (
             <div key={i} className="p-6 rounded-2xl border border-white/[0.06] bg-[var(--pr-navy)]">
               <span className="text-[var(--pr-blue)] font-bold text-sm">{item.step}</span>
